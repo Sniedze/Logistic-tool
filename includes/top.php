@@ -12,6 +12,7 @@
     <nav>        
         <img class="logo" src="capture.png" alt="">
         <a <?= $sClassActive == 'home'?'class="active"':'';?> href="index.php">HOME</a>
+        <?= $sClassActive == 'dashboard'?'class="active"':''; ?> href="customers.php">DASHBOARD</a> 
         <a <?= $sClassActive == 'customers'?'class="active"':''; ?> href="customers.php">CUSTOMERS</a> 
         <a <?= $sClassActive == 'orders'?'class="active"':'';?> href="orders.php">ORDERS</a>
         <a <?= $sClassActive == 'drivers'?'class="active"':'';?> href="drivers.php">DRIVERS</a>
