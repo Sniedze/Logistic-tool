@@ -22,7 +22,10 @@ $result = $drivers->list();
                     <th>First Name</th>                   
                     <th>Last Name</th>
                     <th>Email</th>
+                    <th>CPR</th>
+                    <th>Salary DKK</th>
                     <th>Truck Assigned</th>
+                    <th></th>
                     
                 </tr>
 

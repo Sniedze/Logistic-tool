@@ -13,11 +13,11 @@ class Drivers
         if ($con) {
             $results = [];
 
-            $stmt = $con->prepare("SELECT * FROM driver ORDER BY last_name");
+            $stmt = $con->prepare("CALL GetDrivers()");
             $stmt->execute();
 
             while ($row = $stmt->fetch())
-                $results[] = [$row["driver_id"], $row["first_name"], $row["last_name"], $row["email"]];
+                $results[] = [$row["driver_id"], $row["first_name"], $row["last_name"], $row["email"], $row["cpr"], $row["salary"], $row["truck_number"]];
 
             $stmt = null;
             $db->disconnect($con);

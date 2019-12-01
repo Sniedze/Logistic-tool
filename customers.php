@@ -10,6 +10,7 @@ require_once(__DIR__.'/includes/Customers_class.php');
 $customers = new Customers();
 /* Get a list of all customers in DB */
 $result = $customers->list();
+
 ?>
 
    <div class="container">
@@ -33,16 +34,18 @@ $result = $customers->list();
                         echo "<td>" . $val[$i] . "</td>";
                     }                   
                     
-                    echo "<td style='text-align: right'> <a class='btn btn-primary' href='view_student.php?id=" . $val[0] . "'>View</a> 
-                    <a class='btn btn-danger' href='delete_student.php?id=" . $val[0] . "'>Delete</a> 
-                    <a class='btn btn-primary' href='edit_student.php?id=" . $val[0] . "'>Edit</a> </td>";
-                    echo "</tr>";
+                    echo "<td style='text-align: right'> <a class='btn btn-primary' href='customer.php?id=$val[0]'>View</a>
+                    <a class='btn btn-primary' href='edit_customer.php?id=$val[0]'>Edit</a> 
+                    <a class='btn btn-danger' href='delete_customer.php?id=$val[0]'>Delete</a> 
+                     </td> 
+                     </tr>";
                 }
 
                 ?>
             </table>
         </div>
     </div>
+   
 </body>
 
 </html>
