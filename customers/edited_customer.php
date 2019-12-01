@@ -1,12 +1,12 @@
 <?php
-require_once(__DIR__. '/includes/top.php');
+//require_once(__DIR__ . '/../includes/top.php');
 
 /* New object of Customer() */
-require_once(__DIR__ . '/includes/Customers_class.php');
+require_once(__DIR__ . '/../includes/Customers_class.php');
 $customers = new Customers();
 
 // Get id from POST 
-$id = $_POST['id'];
+$id = $_POST['customer_id'];
 $name = $_POST['name'];
 $reg_num = $_POST['reg_num'];
 $email = $_POST['email'];

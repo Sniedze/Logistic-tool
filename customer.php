@@ -8,8 +8,8 @@ require_once(__DIR__.'/includes/top.php');
 /* New object of Customers() */
 require_once(__DIR__.'/includes/Customers_class.php');
 $customers = new Customers();
-
-$result = $customers->getCustomerAndAddresses($_GET["id"]);
+$id = $_GET["id"];
+$result = $customers->getCustomerAndAddresses($id);
 $customer = $result[0];
 
 ?>
@@ -19,7 +19,7 @@ $customer = $result[0];
             <div class="col-xs-8 col-xs-offset-2">
                 <form class="form-horizontal">
                     
-                    <input class="input" type="hidden" id="id" name="id" value="<?= $result['customer_id'] ?>">
+                    <input class="input" type="hidden" id="customer_id" name="customer_id" value="<?=$customer[0]?>">
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">Name</label>
                         <div class="col-sm-10">

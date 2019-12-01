@@ -1,11 +1,11 @@
 //////////////////////Update Student Profile///////////////////////////////////////////
 $("#save_button").click(function(event) {
     event.preventDefault();
-    var sCustomerId = $("#id").val();
+    var sCustomerId = $("#customer_id").val();
     var sName = $("#name").val();
     var sRegNum = $("#reg_num").val();
     var sEmail = $("#email").val();
-      console.log(sName);
+      console.log(sCustomerId);
      $.ajax({
        url: "customers/edited_customer.php",
        dataType: "text",
