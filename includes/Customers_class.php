@@ -17,7 +17,7 @@ class Customers
             $stmt->execute();
 
             while ($row = $stmt->fetch())
-                $results[] = [$row["customer_id"], $row["reg_number"], $row["customer_name"], $row["email"]];
+                $results[] = [$row["customer_id"], $row["customer_name"], $row["reg_number"], $row["email"]];
 
             $stmt = null;
             $db->disconnect($con);
@@ -53,9 +53,9 @@ class Customers
         $con = $db->connect();
 
         if ($con) {
-            $stmt = $con->prepare("UPDATE customer SET reg_number = ?, customer_name = ?, email = ? WHERE customer_id = $id;");
+            $stmt = $con->prepare("UPDATE customer SET reg_number = ?, customer_name = ?, email = ? WHERE customer_id = ?;");
 
-            $stmt->execute([$reg_number, $customer_name, $email]);
+            $stmt->execute([$reg_number, $customer_name, $email, $id]);
 
             $stmt = null;
             $db->disconnect($con);
@@ -65,6 +65,45 @@ class Customers
             return false;
     }
 
+function addCustomer($sRegNum, $sCustomerName, $sEmail){
+    $db = new DB();
+        $con = $db->connect();
+        if ($con) {
+            try {
+                $stmt = $con->prepare("INSERT INTO customer (reg_number, customer_name, email) VALUES (?,?,?)");
+                $ok = $stmt->execute([$sRegNum, $sCustomerName, $sEmail]);
+
+                $stmt = null;
+                $db->disconnect($con);
+
+                return ($ok);
+            } catch (PDOException $e) {
+                echo $e;
+            }
+        } else {
+            $stmt = null;
+            $db->disconnect($con);
+            return false;
+        }
+}
+
+    function deleteCustomer($id){
+        
+        $db = new DB();
+        $con = $db->connect();
+        $sTableName = 'customer';
+        if ($con) {
+            $stmt = $con->prepare("DELETE FROM $sTableName WHERE customer_id = ?;");
+
+            $stmt->execute([$id]);
+
+            $stmt = null;
+            $db->disconnect($con);
+            
+            
+        } else
+            return false;
+    }
 
 
 }

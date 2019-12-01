@@ -19,23 +19,23 @@ $customer = $result[0];
             <div class="col-xs-8 col-xs-offset-2">
                 <form class="form-horizontal">
                     
-                    <input class="input" type="hidden" id="customer_id" name="customer_id" value="<?=$customer[0]?>">
+                    <input class="input" type="hidden" id="customer_id" name="customer_id" value="<?= $customer[0] ?>">
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">Name</label>
                         <div class="col-sm-10">
-                            <input class="input" type="text"  class="form-control" id="name" placeholder="Name" name="name" value="<?= $customer[2] ?>">
+                            <input class="input" type="text"  id="name" placeholder="Name" name="name" value="<?= $customer[2] ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="reg_num" class="col-sm-2 control-label">Registration Number</label>
                         <div class="col-sm-10">
-                            <input class="input" type="text" class="form-control" id="reg_num" placeholder="Registration number" name="reg_num" value="<?= $customer[1] ?>">
+                            <input class="input" type="text"  id="reg_num" placeholder="Registration number" name="reg_num" value="<?= $customer[1] ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">Email</label>
                         <div class="col-sm-10">
-                            <input class="input" type="email"  class="form-control" id="email" placeholder="email" name="email" value="<?= $customer[3] ?>">
+                            <input class="input" type="email" id="email" placeholder="email" name="email" value="<?= $customer[3] ?>">
                         </div>
                     </div>
 
