@@ -2,7 +2,7 @@ $(".remove").click(function(){
     var id = $(this).closest("tr").attr("id");
     console.log(id);
 
-    if(confirm('Are you sure to remove this record?'))
+    if(confirm('Are you sure to remove this customer?'))
     {
         $.ajax({
            url: 'customers/delete_customer.php',
@@ -13,7 +13,7 @@ $(".remove").click(function(){
            },
            success: function(data) {
                 $(`#${id}`).remove();
-                alert("Record removed successfully");  
+                alert("Customer removed successfully");  
            }
         });
         

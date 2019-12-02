@@ -88,14 +88,13 @@ function addCustomer($sRegNum, $sCustomerName, $sEmail){
 }
 
     function deleteCustomer($id){
-        
+        $sTableName = 'customer';
         $db = new DB();
         $con = $db->connect();
-        $sTableName = 'customer';
         if ($con) {
-            $stmt = $con->prepare("DELETE FROM $sTableName WHERE customer_id = ?;");
+            $stmt = $con->prepare("DELETE FROM ? WHERE customer_id = ?;");
 
-            $stmt->execute([$id]);
+            $stmt->execute([$sTableName, $id]);
 
             $stmt = null;
             $db->disconnect($con);
