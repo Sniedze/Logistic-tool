@@ -16,6 +16,7 @@ class Dashboard
             $stmt->execute();
 
             while ($row = $stmt->fetch())
+
                 $results[] = [$row["order_id"], $row["customer_id"], $row["pickup_date"], $row["delivery_date"], $row["product_name"], $row["size"], $row["order_status_id"]];
 
             $stmt = null;
