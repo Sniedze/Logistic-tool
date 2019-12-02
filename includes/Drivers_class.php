@@ -1,10 +1,10 @@
 <?php
 
-require_once(__DIR__."/connection.php");
+require_once(__DIR__ . "/connection.php");
 
 class Drivers
 {
-   
+
     function list()
     {
 
@@ -13,11 +13,11 @@ class Drivers
         if ($con) {
             $results = [];
 
-            $stmt = $con->prepare("CALL GetDrivers()");
+            $stmt = $con->prepare("SELECT * FROM driver");
             $stmt->execute();
 
             while ($row = $stmt->fetch())
-                $results[] = [$row["driver_id"], $row["first_name"], $row["last_name"], $row["email"], $row["cpr"], $row["salary"], $row["truck_number"]];
+                $results[] = [$row["driver_id"], $row["first_name"], $row["last_name"], $row["email"], $row["truck_number"]];
 
             $stmt = null;
             $db->disconnect($con);
@@ -26,6 +26,4 @@ class Drivers
         } else
             return false;
     }
-
-
 }

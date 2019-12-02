@@ -1,17 +1,17 @@
 <?php
 
-require_once(__DIR__."/connection.php");
+require_once(__DIR__ . "/connection.php");
 
 class Orders
 {
-   
+
     function list()
     {
 
         $db = new DB();
         $con = $db->connect();
         if ($con) {
-            
+
             $stmt = $con->prepare("CALL `GetOrders`()");
             $stmt->execute();
 
@@ -22,14 +22,7 @@ class Orders
             $db->disconnect($con);
 
             return $results;
-
-
-
-
-            
         } else
             return false;
     }
-
-
 }
