@@ -37,7 +37,7 @@ class Customers
             $stmt->execute([$id]);
 
             while ($row = $stmt->fetch())
-                $results[] = [$row["customer_id"], $row["reg_number"], $row["customer_name"], $row["email"], $row["company_name"], $row["street"], $row["postal_code"], $row["city"], $row["country"]];
+                $results[]= [$row["customer_id"], $row["reg_number"], $row["customer_name"], $row["email"], $row["company_name"], $row["street"], $row["postal_code"], $row["city"], $row["country"]];
 
             $stmt = null;
             $db->disconnect($con);
@@ -87,22 +87,38 @@ function addCustomer($sRegNum, $sCustomerName, $sEmail){
         }
 }
 
-    function deleteCustomer($id){
-        $sTableName = 'customer';
-        $db = new DB();
-        $con = $db->connect();
-        if ($con) {
-            $stmt = $con->prepare("DELETE FROM ? WHERE customer_id = ?;");
+function deleteCustomer($id)
+{
+    $db = new DB();
+    $con = $db->connect();
 
-            $stmt->execute([$sTableName, $id]);
+    if ($con) {
+        $stmt = $con->prepare("DELETE FROM customer WHERE customer_id = ?;");
+        $stmt->execute([$id]);
 
-            $stmt = null;
-            $db->disconnect($con);
-            
-            
-        } else
-            return false;
-    }
+        $stmt = null;
+        $db->disconnect($con);
+        
+        
+    } else
+        return false;
+}
+function saveNewAddress($sId, $sCompanyName, $sStreet, $sPostalCode, $sCity, $sCountry){
+    $db = new DB();
+    $con = $db->connect();
+
+    if ($con) {
+        $stmt = $con->prepare("CALL SaveNewAddress(?,?,?,?,?,?);");
+        $stmt->execute([$sPostalCode, $sCity, $sCountry, $sCompanyName, $sStreet, $sId]);
+        //$stmt->execute();
+        $stmt = null;
+        $db->disconnect($con);
+        
+        
+    } else
+        return false;
+}
+
 
 
 }

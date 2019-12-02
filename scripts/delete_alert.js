@@ -6,7 +6,7 @@ $(".remove").click(function(){
     {
         $.ajax({
            url: 'customers/delete_customer.php',
-           type: 'GET',
+           type: 'POST',
            data: {id: id},
            error: function() {
               alert('Something is wrong');
