@@ -4,8 +4,7 @@ $("#save_button").click(function(event) {
     var sCustomerId = $("#customer_id").val();
     var sName = $("#name").val();
     var sRegNum = $("#reg_num").val();
-    var sEmail = $("#email").val();
-      console.log(sCustomerId);
+    var sEmail = $("#email").val()
      $.ajax({
        url: "customers/edited_customer.php",
        dataType: "text",
@@ -15,11 +14,10 @@ $("#save_button").click(function(event) {
          name: sName,
          reg_num: sRegNum,
          email: sEmail
-                }
+      }
      })
        .done(data => {
          if (data) {
-           console.log("Customer has been updated");
            $("#company_name").text(sName);
            $("#reg_num").text(sRegNum);
            $("#email").text(sEmail);

@@ -15,13 +15,13 @@ $result = $customers->list();
 
    <div class="container">
         <div class="row top-buffer">
-            <a href="new_customer.php" class="btn-primary btn">New Customer</a>
+            <a href="add_customer.php" class="btn-primary btn">New Customer</a>
             <h3>Customers</h3>
-            <table class=" table table-striped">
+            <table class="table">
                 <tr>
                     <th>ID</th>                   
-                    <th>Registration number</th>
                     <th>Name</th>
+                    <th>Registration number</th>
                     <th>Email</th>
                     <th></th>
                 </tr>
@@ -29,15 +29,15 @@ $result = $customers->list();
                 <?php
 
                 foreach ($result as $val) {
-                    echo "<tr>";
+                    echo "<tr id='$val[0]'>";
                     for($i=0; $i < count($val); $i++){
-                        echo "<td>" . $val[$i] . "</td>";
+                        echo "<td>$val[$i]</td>";
                     }                   
                     
-                    echo "<td style='text-align: right'> <a class='btn btn-primary' href='customer.php?id=$val[0]'>View</a>
-                    <a class='btn btn-primary' href='edit_customer.php?id=$val[0]'>Edit</a> 
-                    <a class='btn btn-danger' href='delete_customer.php?id=$val[0]'>Delete</a> 
-                     </td> 
+                    echo "<td style='text-align: right'> 
+                            <a class='btn btn-primary' href='customer.php?id=$val[0]&$val[2]'>View and Edit</a>
+                            <button class='remove'>Delete</button> 
+                          </td> 
                      </tr>";
                 }
 
@@ -45,7 +45,8 @@ $result = $customers->list();
             </table>
         </div>
     </div>
-   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="scripts/delete_alert.js"></script>
 </body>
 
 </html>
