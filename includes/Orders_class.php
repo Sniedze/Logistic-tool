@@ -91,3 +91,16 @@ class Orders
    
 
 }
+// BEGIN
+// 	SELECT * FROM shipment_order AS so           
+//            LEFT JOIN order_driver AS od ON od.order_id = so.order_id
+//            LEFT JOIN driver AS d ON d.driver_id = od.driver_id
+//            LEFT JOIN truck AS t ON t.truck_number = d.truck_number
+//            LEFT JOIN customer AS c ON c.customer_id = so.customer_id
+//            LEFT JOIN shipment_address AS sa ON so.pickup_address_id = sa.address_id
+//            LEFT JOIN shipment_address AS sha ON so.delivery_address_id = sha.address_id
+//            LEFT JOIN order_location AS ol ON ol.location_id = sa.location_id
+//            LEFT JOIN order_status AS os ON so.order_status_id = os.order_status_id            
+
+//            ORDER BY so.pickup_date;
+// END

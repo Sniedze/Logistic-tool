@@ -15,7 +15,9 @@ $deliveryAddress = $orders->getDeliveryAdddress();
 
 for($i=0; $i<count($result);$i++){
     $res[] = array_merge_recursive($result[$i], $pickupAddress[$i], $deliveryAddress[$i]);
-}print_r($res);
+};
+
+print_r($result);
 ?>
 
    <div class="container">
@@ -45,8 +47,7 @@ for($i=0; $i<count($result);$i++){
                     for($i=0; $i < 8; $i++){
                         echo "<td> $val[$i] </td>
                         ";
-                    }  
-                                 
+                    }                                 
                     
                     echo "<td> $val[11]</td>
                     <td> $val[16]</td><td style='text-align: right'> <a class='btn btn-primary' href='edit_order.php?id=$val[0]'>View and Edit</a> 
