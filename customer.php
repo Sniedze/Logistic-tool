@@ -19,7 +19,7 @@ $customer = $result[0];
             <div class="col-xs-8 col-xs-offset-2">
                 <form class="form-horizontal">
                     
-                    <input class="input" type="hidden" id="customer_id" name="customer_id" value="<?= $customer[0] ?>">
+                    <input class="input" type="hidden" id="customer_id" name="customer_id" value="<?= $id ?>">
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">Name</label>
                         <div class="col-sm-10">
@@ -50,44 +50,34 @@ $customer = $result[0];
         </div>
     </div>
 
-    <div class="container">
-        <div class="row top-buffer">            
-           
+    <div class="container">          
 
             <h4>Saved Addresses</h4>
-
-            <table class="table table-striped">
+            <?php
+            if($customer[4]!=null){
+                echo "<table id='$id' class='table table-striped'>
                 <tr>
                     <th>Company Name</th>
                     <th>Address</th>
                     <th>Postal Code</th>
                     <th>City</th>
                     <th>Country</th>
-                </tr>
-                <?php
+                    <th></th>
+                </tr>";
                 foreach ($result as $val) {
                     echo "<tr>";
-                    echo "<td>" . $val[4] . "</td>";
-                    echo "<td>" . $val[5] . "</td>";
-                    echo "<td>" . $val[6] . "</td>";
-                    echo "<td>" . $val[7] . "</td>";
-                    echo "<td>" . $val[8] . "</td>";
-
-                    // Check if there is an enrollment and if it is graded
-                    // if ($val[5] != null & $val[9] == null) {
-                    //     echo "<td><a class='btn btn-primary' href='grade_student.php?sid=" . $val[0] . "&cid=" . $val[5] . "'>Grade Student</a></td>";
-                    // } else {
-                    //     echo "<td>" . $val[9] . "</td>";
-                    // }
-
-                    echo "</tr>";
+                    for($i=4; $i < count($val); $i++){
+                        echo "<td>$val[$i]</td>";
+                    }                   
+                    
+                    echo "<td><a class='btn btn-danger' href='delete_saved_address.php?id=$id'>Delete</a></td>
+                   </tr>";
                 }
+                echo ' </table>';
+            }               
                 ?>
-
-            </table>
-
-
-        </div>
+                <br><a class='btn' href='save_new_address.php?id=<?=$id?>'>Add New Address</a>
+            
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="scripts/edit_customer.js"></script>

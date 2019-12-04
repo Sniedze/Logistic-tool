@@ -14,7 +14,7 @@ $result = $orders->list();
 
    <div class="container">
         <div class="row top-buffer">
-            <a href="new_customer.php" class="btn-primary btn">New Order</a>
+            <a href="new_order.php" class="btn-primary btn">New Order</a>
             <h3>Orders</h3>
             <table class=" table table-striped">
                 <tr>

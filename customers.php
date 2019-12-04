@@ -35,7 +35,7 @@ $result = $customers->list();
                     }                   
                     
                     echo "<td style='text-align: right'> 
-                            <a class='btn btn-primary' href='customer.php?id=$val[0]&$val[2]'>View and Edit</a>
+                            <a class='btn btn-primary' href='customer.php?id=$val[0]&$val[1]'>View and Edit</a>
                             <button class='remove'>Delete</button> 
                           </td> 
                      </tr>";
