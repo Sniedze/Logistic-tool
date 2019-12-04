@@ -19,7 +19,7 @@ $result = $customers->list();
             <h3>Customers</h3>
             <table class="table">
                 <tr>
-                    <th>ID</th>                   
+                    <th>Id</th>                   
                     <th>Name</th>
                     <th>Registration number</th>
                     <th>Email</th>
