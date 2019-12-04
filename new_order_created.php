@@ -21,7 +21,7 @@ echo $sDeliveryCity = $_POST['delivery_city'];
 echo $sDeliveryCountry = $_POST['delivery_country'];
 
 $newOrder = new Orders();
-$newOrder->addOrder($sPickupDate, $sCustomerName, $sGoods, $sSize, $sDelivery_date, $sCompanyName, $sStreet, $sPostalCode, $sCity, $sCountry, 'Ordered');
+$newOrder->addOrder($sPickupDate, $sCustomerName, $sGoods, $sSize, $sDelivery_date, $sPickupCompanyName, $sPickupStreet, $sPickupPostalCode, $sPickupCity, $sPickupCountry, $sDeliveryCompanyName, $sDeliveryStreet, $sDeliveryPostalCode, $sDeliveryCity, $sDeliveryCountry, 'Ordered');
 if($_POST){;
 ?>
 <div class="container">

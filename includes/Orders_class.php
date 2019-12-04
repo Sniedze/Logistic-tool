@@ -12,7 +12,7 @@ class Orders
         $con = $db->connect();
         if ($con) {
             $results=[];
-            $stmt = $con->prepare("CALL `GetOrders`()");
+            $stmt = $con->prepare("CALL GetOrders()");
             $stmt->execute();
 
             while ($row = $stmt->fetch())
@@ -27,13 +27,13 @@ class Orders
             return false;
     }
 
-    function addOrder($sPickupDate, $sCustomerName, $sGoods, $sSize, $sDelivery_date, $sCompanyName, $sStreet, $sPostalCode, $sCity, $sCountry, $sStatusName){
+    function addOrder($sPickupDate, $sCustomerName, $sGoods, $sSize, $sDelivery_date, $sPickupCompanyName, $sPickupStreet, $sPickupPostalCode, $sPickupCity, $sPickupCountry, $sDeliveryCompanyName, $sDeliveryStreet, $sDeliveryPostalCode, $sDeliveryCity, $sDeliveryCountry, $sStatusName){
         $db = new DB();
         $con = $db->connect();
     
         if ($con) {
-            $stmt = $con->prepare("CALL AddOrder(?,?,?,?,?,?,?,?,?,?,?);");
-            $stmt->execute([$sPickupDate, $sCustomerName, $sGoods, $sSize, $sDelivery_date, $sPostalCode, $sCity, $sCountry, $sCompanyName, $sStreet, $sStatusName]);
+            $stmt = $con->prepare("CALL AddOrder(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
+            $stmt->execute([$sPickupDate, $sCustomerName, $sGoods, $sSize, $sDelivery_date, $sPickupPostalCode, $sPickupCity, $sPickupCountry, $sPickupCompanyName, $sPickupStreet, $sStatusName, $sDeliveryPostalCode,  $sDeliveryCity, $sDeliveryCountry, $sDeliveryCompanyName, $sDeliveryStreet]);
            
             $stmt = null;
             $db->disconnect($con);

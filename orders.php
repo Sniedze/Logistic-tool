@@ -39,8 +39,8 @@ $result = $orders->list();
                         echo "<td> $val[$i] </td>";
                     }                   
                     
-                    echo "<td style='text-align: right'> <a class='btn btn-primary' href='edit_student.php?id=$val[0]'>Edit</a> 
-                    <a class='btn btn-danger' href='delete_student.php?id=$val[0]'>Delete</a> 
+                    echo "<td style='text-align: right'> <a class='btn btn-primary' href='edit_order.php?id=$val[0]'>View and Edit</a> 
+                    <a class='btn btn-danger' href='delete_order.php?id=$val[0]'>Delete</a> 
                      </td> 
                      </tr>";
                     }
