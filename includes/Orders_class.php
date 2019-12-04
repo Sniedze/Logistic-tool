@@ -11,7 +11,7 @@ class Orders
         $db = new DB();
         $con = $db->connect();
         if ($con) {
-            
+            $results=[];
             $stmt = $con->prepare("CALL `GetOrders`()");
             $stmt->execute();
 
@@ -22,14 +22,27 @@ class Orders
             $db->disconnect($con);
 
             return $results;
-
-
-
-
             
         } else
             return false;
     }
 
+    function addOrder($sPickupDate, $sCustomerName, $sGoods, $sSize, $sDelivery_date, $sCompanyName, $sStreet, $sPostalCode, $sCity, $sCountry, $sStatusName){
+        $db = new DB();
+        $con = $db->connect();
+    
+        if ($con) {
+            $stmt = $con->prepare("CALL AddOrder(?,?,?,?,?,?,?,?,?,?,?);");
+            $stmt->execute([$sPickupDate, $sCustomerName, $sGoods, $sSize, $sDelivery_date, $sPostalCode, $sCity, $sCountry, $sCompanyName, $sStreet, $sStatusName]);
+           
+            $stmt = null;
+            $db->disconnect($con);
+            
+            
+        } else
+            return false;
+    }
+    
+   
 
 }

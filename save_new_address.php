@@ -2,7 +2,7 @@
 $sPageTitle = 'New Address';
 $sClassActive = 'customers';
 $sId = $_GET['id'];
-echo $sId;
+
 require_once(__DIR__. '/includes/top.php');
 require_once(__DIR__ . '/includes/Customers_class.php');
     ?>

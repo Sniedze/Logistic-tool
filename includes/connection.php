@@ -9,7 +9,7 @@
          */
         public function connect() {
             $server = 'localhost';
-            $db = 'logistic_tool';
+            $db = 'logistics_tool';
             $user = 'root';
             $pwd = '';
 
