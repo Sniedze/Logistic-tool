@@ -12,7 +12,7 @@ class Dashboard
         if ($con) {
             $results = [];
 
-            $stmt = $con->prepare("SELECT * FROM shipment_order WHERE pickup_date='$date'");
+            $stmt = $con->prepare("SELECT * FROM shipment_order WHERE pickup_date='$date' AND order_status_id=1");
             $stmt->execute();
 
             while ($row = $stmt->fetch())

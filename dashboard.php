@@ -9,11 +9,17 @@ require_once(__DIR__ . '/includes/Dashboard_class.php');
 require_once(__DIR__ . '/includes/Drivers_class.php');
 
 $dayOrders = new Dashboard();
+
+//$timezone = date_default_timezone_get();
+$date = date('d/m/Y');
+echo ($date);
+
 $ordersResult = $dayOrders->listOrders('2019-11-30');
 $drivers = new Drivers();
 /* Get a list of all drivers in DB */
 $driversResult = $drivers->list();
 ?>
+<input type="date" id="dateInput" name="orderDate">
 
 <form id="dashboardOrdersForm">
     <?php
@@ -38,7 +44,7 @@ $driversResult = $drivers->list();
     <button type="submit" id="confirmAssignmentBtn">Confirm</button>
 </form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="scripts/dashboard_add_confirm.js"></script>
+<script src="scripts/dashboard.js"></script>
 </body>
 
 </html>

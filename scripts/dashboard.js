@@ -24,4 +24,9 @@ dashBoardForms.forEach(elm =>
 );
 document
   .querySelector("#confirmAssignmentBtn")
-  .addEventListener("click", function() {});
+  .addEventListener("click", function(evt) {
+    evt.preventDefault();
+  });
+document.querySelector("#dateInput").addEventListener("change", function() {
+  console.log("datechange");
+});
