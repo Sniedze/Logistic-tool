@@ -14,7 +14,7 @@ $dayOrders = new Dashboard();
 $date = date('d/m/Y');
 echo ($date);
 
-$ordersResult = $dayOrders->listOrders('2019-11-30');
+$ordersResult = $dayOrders->listOpenOrders('2019-11-30');
 $drivers = new Drivers();
 /* Get a list of all drivers in DB */
 $driversResult = $drivers->list();

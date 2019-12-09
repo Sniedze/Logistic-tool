@@ -26,6 +26,8 @@ document
   .querySelector("#confirmAssignmentBtn")
   .addEventListener("click", function(evt) {
     evt.preventDefault();
+    console.log(document.querySelector("#driverSelectedInput").value);
+    console.log(document.querySelector("#orderSelectedInput").value);
   });
 document.querySelector("#dateInput").addEventListener("change", function() {
   console.log("datechange");

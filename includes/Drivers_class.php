@@ -13,7 +13,7 @@ class Drivers
         if ($con) {
             $results = [];
 
-            $stmt = $con->prepare("SELECT * FROM driver");
+            $stmt = $con->prepare("SELECT * FROM driver WHERE available=1");
             $stmt->execute();
 
             while ($row = $stmt->fetch())

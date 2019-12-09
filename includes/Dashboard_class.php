@@ -5,7 +5,7 @@ require_once(__DIR__ . "/connection.php");
 class Dashboard
 {
 
-    function listOrders($date)
+    function listOpenOrders($date)
     {
         $db = new DB();
         $con = $db->connect();
