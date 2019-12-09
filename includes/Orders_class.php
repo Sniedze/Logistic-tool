@@ -1,17 +1,17 @@
 <?php
 
-require_once(__DIR__."/connection.php");
+require_once(__DIR__ . "/connection.php");
 
 class Orders
 {
-   
+
     function list()
     {
 
         $db = new DB();
         $con = $db->connect();
         if ($con) {
-            
+
             $stmt = $con->prepare("CALL GetOrders()");
             $stmt->execute();
 
@@ -21,17 +21,26 @@ class Orders
             $stmt = null;
             $db->disconnect($con);
 
+<<<<<<< HEAD
             return $orderData;
             
+=======
+            return $results;
+>>>>>>> 7553b03f88909ae6e874e660d9afb2b2b1afa1b8
         } else
             return false;
     }
 
-    function getPickupAdddress(){
+    function getPickupAdddress()
+    {
         $db = new DB();
         $con = $db->connect();
         if ($con) {
+<<<<<<< HEAD
             $pickupAddress=[];
+=======
+            $results = [];
+>>>>>>> 7553b03f88909ae6e874e660d9afb2b2b1afa1b8
             $stmt = $con->prepare("SELECT * FROM shipment_order AS so
                                     LEFT JOIN shipment_address AS sa ON sa.address_id = so.pickup_address_id
                                     LEFT JOIN order_location AS ol ON ol.location_id = sa.location_id
@@ -44,16 +53,25 @@ class Orders
             $stmt = null;
             $db->disconnect($con);
 
+<<<<<<< HEAD
             return $pickupAddress;
             
+=======
+            return $results;
+>>>>>>> 7553b03f88909ae6e874e660d9afb2b2b1afa1b8
         } else
             return false;
     }
-    function getDeliveryAdddress(){
+    function getDeliveryAdddress()
+    {
         $db = new DB();
         $con = $db->connect();
         if ($con) {
+<<<<<<< HEAD
             $deliveryAddress=[];
+=======
+            $results = [];
+>>>>>>> 7553b03f88909ae6e874e660d9afb2b2b1afa1b8
             $stmt = $con->prepare("SELECT * FROM shipment_order AS so
                                     LEFT JOIN shipment_address AS sa ON sa.address_id = so.delivery_address_id
                                     LEFT JOIN order_location AS ol ON ol.location_id = sa.location_id
@@ -66,6 +84,7 @@ class Orders
             $stmt = null;
             $db->disconnect($con);
 
+<<<<<<< HEAD
             return $deliveryAddress;
             
         } else
@@ -137,26 +156,29 @@ class Orders
 
             return $deliveryAddress;
             
+=======
+            return $results;
+>>>>>>> 7553b03f88909ae6e874e660d9afb2b2b1afa1b8
         } else
             return false;
     }
 
-    function addOrder($sPickupDate, $sCustomerName, $sGoods, $sSize, $sDelivery_date, $sPickupCompanyName, $sPickupStreet, $sPickupPostalCode, $sPickupCity, $sPickupCountry, $sDeliveryCompanyName, $sDeliveryStreet, $sDeliveryPostalCode, $sDeliveryCity, $sDeliveryCountry, $sStatusName){
+    function addOrder($sPickupDate, $sCustomerName, $sGoods, $sSize, $sDelivery_date, $sPickupCompanyName, $sPickupStreet, $sPickupPostalCode, $sPickupCity, $sPickupCountry, $sDeliveryCompanyName, $sDeliveryStreet, $sDeliveryPostalCode, $sDeliveryCity, $sDeliveryCountry, $sStatusName)
+    {
         $db = new DB();
         $con = $db->connect();
-    
+
         if ($con) {
             $stmt = $con->prepare("CALL AddOrder(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
             $stmt->execute([$sPickupDate, $sCustomerName, $sGoods, $sSize, $sDelivery_date, $sPickupPostalCode, $sPickupCity, $sPickupCountry, $sPickupCompanyName, $sPickupStreet, $sStatusName, $sDeliveryPostalCode,  $sDeliveryCity, $sDeliveryCountry, $sDeliveryCompanyName, $sDeliveryStreet]);
-           
+
             $stmt = null;
             $db->disconnect($con);
-            
-            
         } else
             return false;
             
     }
+<<<<<<< HEAD
     function update($customer_name, $pickup_date, $pickup_company, $pickup_street, $pickup_city, $pickup_postal_code, $pickup_country, $delivery_company, $delivery_date, $delivery_street, $delivery_city, $delivery_postal_code, $delivery_country, $status, $id, $goods, $size)
     {
         $db = new DB();
@@ -211,6 +233,8 @@ class Orders
    }
    
 
+=======
+>>>>>>> 7553b03f88909ae6e874e660d9afb2b2b1afa1b8
 }
 // BEGIN
 // 	SELECT * FROM shipment_order AS so           
