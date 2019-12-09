@@ -14,7 +14,7 @@ $result = $trucks->list();
 
    <div class="container">
         <div class="row top-buffer">
-            <a href="new_customer.php" class="btn-primary btn">New Truck</a>
+            <a href="add_truck.php" class="btn-primary btn">New Truck</a>
             <h3>Trucks</h3>
             <table class=" table table-striped">
                 <tr>                     

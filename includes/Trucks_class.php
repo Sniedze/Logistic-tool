@@ -17,7 +17,7 @@ class Trucks
             $stmt->execute();
 
             while ($row = $stmt->fetch())
-                $results[] = [$row['truck_number'], $row['capacity'], $row['length'], $row['registration_date']];
+                $results[] = [$row['truck_number'], $row['capacity'], $row['registration_date']];
 
             $stmt = null;
             $db->disconnect($con);
@@ -27,5 +27,23 @@ class Trucks
             return false;
     }
 
+    function addTruck($sTruckNumber, $sCapacity, $sRegistration_date){
+        $db = new DB();
+        $con = $db->connect();
 
-}
+        if ($con) {
+            $stmt = $con->prepare("INSERT INTO truck (truck_number, capacity, registration_date) VALUES (?,?,?)");
+
+            $stmt->execute([$sTruckNumber, $sCapacity, $sRegistration_date]);
+
+            $stmt = null;
+            $db->disconnect($con);
+            
+            
+        } else
+            return false;
+    }
+   
+    }
+
+

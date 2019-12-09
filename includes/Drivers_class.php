@@ -26,4 +26,19 @@ class Drivers
         } else
             return false;
     }
+    function addDriver($sFirstName, $sLastName, $sEmail, $sTruckNumber, $sCpr, $sSalary)
+    {
+        $db = new DB();
+        $con = $db->connect();
+
+        if ($con) {
+            $stmt = $con->prepare("CALL AddDriver(?,?,?,?,?,?)");
+
+            $stmt->execute([$sFirstName, $sLastName, $sEmail, $sTruckNumber, $sCpr, $sSalary]);
+
+            $stmt = null;
+            $db->disconnect($con);
+        } else
+            return false;
+    }
 }
