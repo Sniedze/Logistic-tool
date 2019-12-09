@@ -16,12 +16,12 @@ class Orders
             $stmt->execute();
 
             while ($row = $stmt->fetch())
-                $results[] = [$row["order_id"], $row["pickup_date"], $row["customer_name"], $row["product_name"], $row["size"], $row["delivery_date"], $row["truck_number"], $row["status_name"]];
+                $orderData[] = [$row["order_id"], $row["pickup_date"], $row["customer_name"], $row["product_name"], $row["size"], $row["delivery_date"], $row["truck_number"], $row["status_name"]];
 
             $stmt = null;
             $db->disconnect($con);
 
-            return $results;
+            return $orderData;
             
         } else
             return false;
@@ -31,7 +31,7 @@ class Orders
         $db = new DB();
         $con = $db->connect();
         if ($con) {
-            $results=[];
+            $pickupAddress=[];
             $stmt = $con->prepare("SELECT * FROM shipment_order AS so
                                     LEFT JOIN shipment_address AS sa ON sa.address_id = so.pickup_address_id
                                     LEFT JOIN order_location AS ol ON ol.location_id = sa.location_id
@@ -39,12 +39,12 @@ class Orders
             $stmt->execute();
 
             while ($row = $stmt->fetch())
-                $results[] = [$row["company_name"], $row["street"], $row["city"], $row["postal_code"], $row["country"]];
+                $pickupAddress[] = [$row["company_name"], $row["street"], $row["city"], $row["postal_code"], $row["country"]];
 
             $stmt = null;
             $db->disconnect($con);
 
-            return $results;
+            return $pickupAddress;
             
         } else
             return false;
@@ -53,7 +53,7 @@ class Orders
         $db = new DB();
         $con = $db->connect();
         if ($con) {
-            $results=[];
+            $deliveryAddress=[];
             $stmt = $con->prepare("SELECT * FROM shipment_order AS so
                                     LEFT JOIN shipment_address AS sa ON sa.address_id = so.delivery_address_id
                                     LEFT JOIN order_location AS ol ON ol.location_id = sa.location_id
@@ -61,12 +61,81 @@ class Orders
             $stmt->execute();
 
             while ($row = $stmt->fetch())
-                $results[] = [$row["company_name"], $row["street"], $row["city"], $row["postal_code"], $row["country"]];
+                $deliveryAddress[] = [$row["company_name"], $row["street"], $row["city"], $row["postal_code"], $row["country"]];
 
             $stmt = null;
             $db->disconnect($con);
 
-            return $results;
+            return $deliveryAddress;
+            
+        } else
+            return false;
+    }
+
+    function getOneOrder($id)
+    {
+
+        $db = new DB();
+        $con = $db->connect();
+        if ($con) {
+            
+            $stmt = $con->prepare("CALL GetOneOrder(?)");
+            $stmt->execute([$id]);
+
+            while ($row = $stmt->fetch())
+                $orderData[] = [$row["order_id"], $row["pickup_date"], $row["customer_name"], $row["product_name"], $row["size"], $row["delivery_date"], $row["truck_number"], $row["status_name"]];
+
+            $stmt = null;
+            $db->disconnect($con);
+
+            return $orderData;
+            
+        } else
+            return false;
+    }
+
+    function getOnePickupAdddress($id){
+        $db = new DB();
+        $con = $db->connect();
+        if ($con) {
+            $pickupAddress=[];
+            $stmt = $con->prepare("SELECT * FROM shipment_order AS so
+                                    LEFT JOIN shipment_address AS sa ON sa.address_id = so.pickup_address_id
+                                    LEFT JOIN order_location AS ol ON ol.location_id = sa.location_id
+                                    WHERE order_id = ?
+                                    ORDER BY so.pickup_date;");
+            $stmt->execute([$id]);
+
+            while ($row = $stmt->fetch())
+                $pickupAddress[] = [$row["company_name"], $row["street"], $row["city"], $row["postal_code"], $row["country"]];
+
+            $stmt = null;
+            $db->disconnect($con);
+
+            return $pickupAddress;
+            
+        } else
+            return false;
+    }
+    function getOneDeliveryAdddress($id){
+        $db = new DB();
+        $con = $db->connect();
+        if ($con) {
+            $deliveryAddress=[];
+            $stmt = $con->prepare("SELECT * FROM shipment_order AS so
+                                    LEFT JOIN shipment_address AS sa ON sa.address_id = so.delivery_address_id
+                                    LEFT JOIN order_location AS ol ON ol.location_id = sa.location_id
+                                    WHERE order_id = ?
+                                    ORDER BY so.pickup_date");
+            $stmt->execute([$id]);
+
+            while ($row = $stmt->fetch())
+                $deliveryAddress[] = [$row["company_name"], $row["street"], $row["city"], $row["postal_code"], $row["country"]];
+
+            $stmt = null;
+            $db->disconnect($con);
+
+            return $deliveryAddress;
             
         } else
             return false;
@@ -86,8 +155,60 @@ class Orders
             
         } else
             return false;
+            
     }
-    
+    function update($customer_name, $pickup_date, $pickup_company, $pickup_street, $pickup_city, $pickup_postal_code, $pickup_country, $delivery_company, $delivery_date, $delivery_street, $delivery_city, $delivery_postal_code, $delivery_country, $status, $id, $goods, $size)
+    {
+        $db = new DB();
+        $con = $db->connect();
+
+        if ($con) {
+            $stmt = $con->prepare("CALL UpdateOrder(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
+            $stmt->execute([$id, $customer_name, $pickup_company, $pickup_street, $delivery_company, $delivery_street, $pickup_date, $delivery_date, $goods, $size, $pickup_postal_code, $pickup_city, $pickup_country, $delivery_postal_code, $delivery_city, $delivery_country, $status]);
+
+            $stmt = null;
+            $db->disconnect($con);
+            
+            
+        } else
+            return false;
+    }
+   function getStatusNames(){
+    $db = new DB();
+    $con = $db->connect();
+    if ($con) {
+        $statusNames=[];
+        $stmt = $con->prepare("SELECT os.status_name FROM order_status AS os;");
+        $stmt->execute();
+
+        while ($row = $stmt->fetch())
+            $statusNames[] = [$row["status_name"]];
+
+        $stmt = null;
+        $db->disconnect($con);
+
+        return $statusNames;
+        
+    } else
+        return false;
+
+   } 
+   function deleteOrder($id){
+    $db = new DB();
+    $con = $db->connect();
+
+    if ($con) {
+        $stmt = $con->prepare("DELETE FROM shipment_order WHERE order_id = ?;");
+        $stmt->execute([$id]);
+
+        $stmt = null;
+        $db->disconnect($con);
+        
+        
+    } else
+        return false;
+   }
    
 
 }
