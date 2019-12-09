@@ -55,7 +55,7 @@ document
       document
         .querySelector("#confirmationModal")
         .classList.remove("dontDisplay");
-
+      //cancel
       document
         .querySelector("#modalCancel")
         .addEventListener("click", function() {
@@ -63,6 +63,10 @@ document
             .querySelector("#confirmationModal")
             .classList.add("dontDisplay");
         });
+      //confirm
+      document
+        .querySelector("#modalConfirm")
+        .addEventListener("click", function() {});
     }
   });
 //date change
