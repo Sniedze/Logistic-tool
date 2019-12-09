@@ -19,6 +19,14 @@ $drivers = new Drivers();
 /* Get a list of all drivers in DB */
 $driversResult = $drivers->list();
 ?>
+
+<div id="confirmationModal" class="dontDisplay">
+    <h1>Please confirm the selection:</h1>
+    <p>Order: <span id="orderSpan"></span></p>
+    <p>Truck: <span id="driverSpan"></span></p>
+    <button id="modalConfirm">Confirm</button>
+</div>
+
 <input type="date" id="dateInput" name="orderDate">
 
 <form id="dashboardOrdersForm">
@@ -30,7 +38,7 @@ $driversResult = $drivers->list();
 <form id="dashboardDriversForm">
     <?php
     foreach ($driversResult as $val) {
-        echo "<input type='radio' name='driver' id='driver$val[0]' value='$val[0]'><label for='driver$val[0]'>$val[1] $val[2] $val[4]</label>";
+        echo "<input type='radio' name='driver' id='driver$val[0]' value='$val[0]'><label for='driver$val[0]'>$val[4]</label>";
     } ?>
 </form>
 
@@ -41,7 +49,7 @@ $driversResult = $drivers->list();
     <h1>Driver</h1>
     <p id="selectedDriverP"></p>
     <input type="hidden" id="driverSelectedInput" name="driverSelected" value="">
-    <button type="submit" id="confirmAssignmentBtn">Confirm</button>
+    <button type="submit" id="confirmAssignmentBtn">Assign</button>
 </form>
 <div id='map' style='width: 400px; height: 300px;'></div>
 

@@ -3,3 +3,9 @@ html,
 body {
   margin: 0 auto;
 }
+.validationError {
+  border: red 1px solid;
+}
+.dontDisplay {
+  display: none;
+}
