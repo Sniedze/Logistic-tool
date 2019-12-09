@@ -1,0 +1,19 @@
+#confirmationModal {
+  position: absolute;
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgb(255, 255, 255, 0.9);
+
+  #text {
+    position: relative;
+    background-color: rgb(255, 255, 255, 1);
+    width: 300px;
+    top: 100px;
+    margin: auto;
+    text-align: center;
+    border: black 1px solid;
+  }
+}

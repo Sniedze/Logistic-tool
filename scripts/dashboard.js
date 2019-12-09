@@ -25,8 +25,6 @@ dashBoardForms.forEach(elm =>
   })
 );
 
-//get form values
-
 //confirmation
 document
   .querySelector("#confirmAssignmentBtn")
@@ -34,7 +32,7 @@ document
     evt.preventDefault();
     let checkOrder = document.querySelector('input[name="order"]:checked');
     let checkDriver = document.querySelector('input[name="driver"]:checked');
-
+    //add validation styling
     if (checkOrder == null) {
       document
         .querySelector("#dashboardOrdersForm")
@@ -45,12 +43,27 @@ document
         .querySelector("#dashboardDriversForm")
         .classList.add("validationError");
     }
-    document.querySelector("#orderSpan").textContent = document.querySelector(
-      "#selectedOrderP"
-    ).textContent;
-    document.querySelector("#driverSpan").textContent = document.querySelector(
-      "#selectedDriverP"
-    ).textContent;
+    if (checkOrder && checkDriver) {
+      //add selections to the confirmation modal (hidden by default)
+      document.querySelector("#orderSpan").textContent = document.querySelector(
+        "#selectedOrderP"
+      ).textContent;
+      document.querySelector(
+        "#driverSpan"
+      ).textContent = document.querySelector("#selectedDriverP").textContent;
+      //display modal
+      document
+        .querySelector("#confirmationModal")
+        .classList.remove("dontDisplay");
+
+      document
+        .querySelector("#modalCancel")
+        .addEventListener("click", function() {
+          document
+            .querySelector("#confirmationModal")
+            .classList.add("dontDisplay");
+        });
+    }
   });
 //date change
 document.querySelector("#dateInput").addEventListener("change", function() {

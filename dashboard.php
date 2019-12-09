@@ -21,10 +21,13 @@ $driversResult = $drivers->list();
 ?>
 
 <div id="confirmationModal" class="dontDisplay">
-    <h1>Please confirm the selection:</h1>
-    <p>Order: <span id="orderSpan"></span></p>
-    <p>Truck: <span id="driverSpan"></span></p>
-    <button id="modalConfirm">Confirm</button>
+    <div id="text">
+        <h1>Please confirm the selection:</h1>
+        <p>Order: <span id="orderSpan"></span></p>
+        <p>Truck: <span id="driverSpan"></span></p>
+        <button id="modalConfirm">Confirm</button>
+        <button id="modalCancel">Cancel</button>
+    </div>
 </div>
 
 <input type="date" id="dateInput" name="orderDate">
