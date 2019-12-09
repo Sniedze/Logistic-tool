@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Sniedze/Logistic-tool#readme",
   "dependencies": {
+    "node-sass": "^4.13.0",
     "sass": "^1.23.7"
   }
 }
