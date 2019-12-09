@@ -22,13 +22,26 @@ dashBoardForms.forEach(elm =>
     }
   })
 );
+
+//get form values
+
+//confimation
 document
   .querySelector("#confirmAssignmentBtn")
   .addEventListener("click", function(evt) {
     evt.preventDefault();
-    console.log(document.querySelector("#driverSelectedInput").value);
-    console.log(document.querySelector("#orderSelectedInput").value);
+    let checkOrder = document.querySelector('input[name="order"]:checked');
+    let checkDriver = document.querySelector('input[name="driver"]:checked');
+    if (checkOrder == null || checkDriver == null) {
+      if (checkOrder == null) {
+        //document.querySelector("#dashboardOrdersForm").
+      }
+    }
+    document.querySelector("#orderSpan").textContent = document.querySelector(
+      "#selectedOrderP"
+    ).textContent;
   });
+//date change
 document.querySelector("#dateInput").addEventListener("change", function() {
   console.log("datechange");
 });

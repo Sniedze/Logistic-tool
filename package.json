@@ -1,0 +1,23 @@
+{
+  "name": "exam_logistics-tool",
+  "version": "1.0.0",
+  "description": "Logistics manager communication tool.",
+  "main": "dashboard.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch sass/main.scss css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sniedze/Logistic-tool.git"
+  },
+  "author": "Rytis Drazdauskas, Ulrika Sniedze",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sniedze/Logistic-tool/issues"
+  },
+  "homepage": "https://github.com/Sniedze/Logistic-tool#readme",
+  "dependencies": {
+    "sass": "^1.23.7"
+  }
+}
