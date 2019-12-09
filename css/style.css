@@ -1,6 +1,33 @@
+#confirmationModal {
+  position: absolute;
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+#confirmationModal #text {
+  position: relative;
+  background-color: white;
+  width: 300px;
+  top: 100px;
+  margin: auto;
+  text-align: center;
+  border: black 1px solid;
+}
+
 html,
 body {
   margin: 0 auto;
+}
+
+.validationError {
+  border: red 1px solid;
+}
+
+.dontDisplay {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */
