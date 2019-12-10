@@ -7,8 +7,11 @@ require_once(__DIR__.'/includes/top.php');
 
 /* New object of orders() */
 require_once(__DIR__.'/includes/Orders_class.php');
+require_once(__DIR__.'/includes/Customers_class.php');
 $orders = new orders();
-$ordersList = $orders->list();
+$customers = new Customers();
+$customerList = $customers->list();
+
 $statusNames = $orders->getStatusNames();
 foreach ($statusNames as $statusName){
     $stNames[]= $statusName[0];
@@ -21,10 +24,10 @@ $deliveryAddress = $orders->getOneDeliveryAdddress($id);
 for($i=0; $i<count($result);$i++){
     $res[] = array_merge_recursive($result[$i], $pickupAddress[$i], $deliveryAddress[$i]);
 };
-print_r($res);
+
 $order = $res[0];
-foreach ($ordersList as $ord){    
-    $names[] = $ord[2];     
+foreach ($customerList as $name){    
+    $names[] = $name[1];     
 };
 ?>
 <div class="container">
@@ -34,9 +37,13 @@ foreach ($ordersList as $ord){
                 <form class="form-horizontal" id="form">
                     
                     <input class="input" type="hidden" id="order_id" name="order_id" value="<?= $id ?>">
+                    <input class="input" type="hidden" id="pickup_address_id" name="pickup_address_id" value="<?= $order[13] ?>">
+                    <input class="input" type="hidden" id="pickup_location_id" name="pickup_location_id" value="<?= $order[14] ?>">
+                    <input class="input" type="hidden" id="delivery_address_id" name="delivery_address_id" value="<?= $order[20] ?>">
+                    <input class="input" type="hidden" id="delivery_location_id" name="delivery_location_id" value="<?= $order[21] ?>">
                     <div class="form-group">
                         <label for="customer_name">Select Customer</label>
-                        <select name="customer_name">
+                        <select name="customer_name" id="customer_name">
                             <option value="<?= $order[2] ?>" selected><?= $order[2] ?></option>
                             <?php
                             foreach ($names as $name) {
@@ -105,31 +112,31 @@ foreach ($ordersList as $ord){
                     <div class="form-group">
                         <label for="delivery_company" class="col-sm-2 control-label">Delivery Company</label>
                         <div class="col-sm-10">
-                            <input class="input" type="text"  id="delivery_company"  name="delivery_company" value="<?= $order[13] ?>">
+                            <input class="input" type="text"  id="delivery_company"  name="delivery_company" value="<?= $order[15] ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="delivery_street" class="col-sm-2 control-label">Delivery Street</label>
                         <div class="col-sm-10">
-                            <input class="input" type="text"  id="delivery_street"  name="delivery_street" value="<?= $order[14] ?>">
+                            <input class="input" type="text"  id="delivery_street"  name="delivery_street" value="<?= $order[16] ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="delivery_city" class="col-sm-2 control-label">Delivery City</label>
                         <div class="col-sm-10">
-                            <input class="input" type="text"  id="delivery_city"  name="delivery_city" value="<?= $order[15] ?>">
+                            <input class="input" type="text"  id="delivery_city"  name="delivery_city" value="<?= $order[17] ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="delivery_postal_code" class="col-sm-2 control-label">Delivery postal code</label>
                         <div class="col-sm-10">
-                            <input class="input" type="text"  id="delivery_postal_code"  name="delivery_postal_code" value="<?= $order[16] ?>">
+                            <input class="input" type="text"  id="delivery_postal_code"  name="delivery_postal_code" value="<?= $order[18] ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="delivery_country" class="col-sm-2 control-label">Delivery country</label>
                         <div class="col-sm-10">
-                            <input class="input" type="text"  id="delivery_country"  name="delivery_country" value="<?= $order[17] ?>">
+                            <input class="input" type="text"  id="delivery_country"  name="delivery_country" value="<?= $order[19] ?>">
                         </div>
                     </div>
                     <div class="form-group">
@@ -138,8 +145,8 @@ foreach ($ordersList as $ord){
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="status">Select Customer</label>
-                        <select name="customer_name">
+                        <label for="status">Select Status</label>
+                        <select name="status" id="status">
                             <option value="<?= $order[7] ?>" selected><?= $order[7] ?></option>
                             <?php
                             foreach ($stNames as $stName) {
@@ -163,37 +170,11 @@ foreach ($ordersList as $ord){
         </div>
     </div>
 
-    <div class="container">          
-
-            <h4>Saved Addresses</h4>
-            <?php
-            if($order[4]!=null){
-                echo "<table id='$id' class='table table-striped'>
-                <tr>
-                    <th>Company Name</th>
-                    <th>Address</th>
-                    <th>Postal Code</th>
-                    <th>City</th>
-                    <th>Country</th>
-                    <th></th>
-                </tr>";
-                foreach ($result as $val) {
-                    echo "<tr>";
-                    for($i=4; $i < count($val); $i++){
-                        echo "<td>$val[$i]</td>";
-                    }                   
-                    
-                    echo "<td><a class='btn btn-danger' href='delete_saved_address.php?id=$id'>Delete</a></td>
-                   </tr>";
-                }
-                echo ' </table>';
-            }               
-                ?>
-                <br><a class='btn' href='save_new_address.php?id=<?=$id?>'>Add New Address</a>
-            
-    </div>
+   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="scripts/edit_order.js"></script>
+    <script src="scripts/edit_order_address.js"></script>
+    <script src="scripts/edit_order_location.js"></script>
 </body>
 
 </html>

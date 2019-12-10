@@ -104,7 +104,7 @@ class Orders
             $stmt->execute([$id]);
 
             while ($row = $stmt->fetch())
-                $onePickupAddress[] = [$row["company_name"], $row["street"], $row["city"], $row["postal_code"], $row["country"]];
+                $onePickupAddress[] = [$row["company_name"], $row["street"], $row["city"], $row["postal_code"], $row["country"],$row["address_id"], $row["location_id"]];
 
             $stmt = null;
             $db->disconnect($con);
@@ -126,7 +126,7 @@ class Orders
             $stmt->execute([$id]);
 
             while ($row = $stmt->fetch())
-                $oneDeliveryAddress[] = [$row["company_name"], $row["street"], $row["city"], $row["postal_code"], $row["country"]];
+                $oneDeliveryAddress[] = [$row["company_name"], $row["street"], $row["city"], $row["postal_code"], $row["country"], $row["address_id"], $row["location_id"]];
 
             $stmt = null;
             $db->disconnect($con);
@@ -186,6 +186,110 @@ class Orders
     } else
         return false;
     }
+    function updateOrder($pickup_date, $delivery_date, $id, $goods, $size)
+    {
+        $db = new DB();
+        $con = $db->connect();
+
+        if ($con) {
+            $stmt = $con->prepare("UPDATE shipment_order SET pickup_date = ?, delivery_date = ?, product_name = ?, size = ? WHERE order_id = ?;");
+            $stmt->execute([$pickup_date, $delivery_date, $goods, $size, $id]);
+
+            $stmt = null;
+            $db->disconnect($con);
+        } else
+            return false;
+            
+    }
+    function updateOrderCustomer($id, $customer_name)
+    {
+        $db = new DB();
+        $con = $db->connect();
+
+        if ($con) {
+            $stmt = $con->prepare("UPDATE shipment_order SET customer_id = (SELECT customer_id FROM customer WHERE customer_name = ?) WHERE order_id = ?;");
+            $stmt->execute([$customer_name, $id]);
+
+            $stmt = null;
+            $db->disconnect($con);
+        } else
+            return false;
+            
+    }
+    function updatePickupShipmentAddress($pickup_company, $pickup_street, $pickup_address_id)
+    {
+        $db = new DB();
+        $con = $db->connect();
+
+        if ($con) {
+            $stmt = $con->prepare("UPDATE shipment_address SET company_name = ?, street = ? WHERE address_id = ?;");
+            $stmt->execute([$pickup_company, $pickup_street, $pickup_address_id]);
+
+            $stmt = null;
+            $db->disconnect($con);
+        } else
+            return false;
+            
+    }
+    function updateDeliveryShipmentAddress($delivery_company, $delivery_street, $delivery_address_id)
+    {
+        $db = new DB();
+        $con = $db->connect();
+
+        if ($con) {
+            $stmt = $con->prepare("UPDATE shipment_address SET company_name = ?, street = ? WHERE address_id = ?;");
+            $stmt->execute([$delivery_company, $delivery_street, $delivery_address_id]);
+
+            $stmt = null;
+            $db->disconnect($con);
+        } else
+            return false;
+            
+    }
+
+    function updatePickupLocation($pickup_city, $pickup_postal_code, $pickup_country, $pickupLocationId){
+        $db = new DB();
+        $con = $db->connect();
+
+        if ($con) {
+            $stmt = $con->prepare("UPDATE order_location SET city = ?, postal_code = ?, country = ?  WHERE location_id = ?;");
+            $stmt->execute([$pickup_city, $pickup_postal_code, $pickup_country, $pickupLocationId]);
+
+            $stmt = null;
+            $db->disconnect($con);
+        } else
+            return false;
+    }
+
+    function updateDeliveryLocation($delivery_city, $delivery_postal_code, $delivery_country, $deliveryLocationId){
+        $db = new DB();
+        $con = $db->connect();
+
+        if ($con) {
+            $stmt = $con->prepare("UPDATE order_location SET city = ?, postal_code = ?, country = ?  WHERE location_id = ?;");
+            $stmt->execute([$delivery_city, $delivery_postal_code, $delivery_country, $deliveryLocationId]);
+
+            $stmt = null;
+            $db->disconnect($con);
+        } else
+            return false;
+    }
+    
+    function updateOrderStatus($status_name, $id){
+        $db = new DB();
+        $con = $db->connect();
+
+        if ($con) {
+            $stmt = $con->prepare("UPDATE shipment_order SET order_status_id = (SELECT order_status_id FROM order_status WHERE satus_name = ?) WHERE order_id = ?;");
+            $stmt->execute([$status_name, $id]);
+
+            $stmt = null;
+            $db->disconnect($con);
+        } else
+            return false;
+    }
+
+
 }
 // BEGIN
 // 	SELECT * FROM shipment_order AS so           
