@@ -25,8 +25,12 @@ $driversResult = $drivers->list();
         <h1>Please confirm the selection:</h1>
         <p>Order: <span id="orderSpan"></span></p>
         <p>Truck: <span id="driverSpan"></span></p>
-        <button id="modalConfirm">Confirm</button>
-        <button id="modalCancel">Cancel</button>
+        <form action="assign_driver.php" method="post">
+            <input type="hidden" id="orderSelectedInput" name="order" value="">
+            <input type="hidden" id="driverSelectedInput" name="driver" value="">
+            <button type="submit" id="modalConfirm">Confirm</button>
+            <button id="modalCancel">Cancel</button>
+        </form>
     </div>
 </div>
 
@@ -48,10 +52,10 @@ $driversResult = $drivers->list();
 <form id="confirmForm" method="POST">
     <h1>Order</h1>
     <p id="selectedOrderP"></p>
-    <input type="hidden" id="orderSelectedInput" name="orderSelected" value="">
+
     <h1>Driver</h1>
     <p id="selectedDriverP"></p>
-    <input type="hidden" id="driverSelectedInput" name="driverSelected" value="">
+
     <button type="submit" id="confirmAssignmentBtn">Assign</button>
 </form>
 <div id='map' style='width: 400px; height: 300px;'></div>
