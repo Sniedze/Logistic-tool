@@ -1,7 +1,7 @@
 <?php
 
 $sPageTitle = 'Dashboard';
-$sClassActive = 'dashboard';
+$sClassActive = 'home';
 require_once(__DIR__ . '/includes/top.php');
 
 /* New object of Customers() */
