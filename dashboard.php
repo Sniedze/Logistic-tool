@@ -17,7 +17,7 @@ echo ($date);
 $ordersResult = $dayOrders->listOpenOrders('2019-12-09');
 $drivers = new Drivers();
 /* Get a list of all drivers in DB */
-$driversResult = $drivers->list();
+$driversResult = $drivers->listAvailable();
 ?>
 
 <div id="confirmationModal" class="dontDisplay">
@@ -25,9 +25,9 @@ $driversResult = $drivers->list();
         <h1>Please confirm the selection:</h1>
         <p>Order: <span id="orderSpan"></span></p>
         <p>Truck: <span id="driverSpan"></span></p>
-        <form action="assign_driver.php" method="post">
-            <input type="hidden" id="orderSelectedInput" name="order" value="">
-            <input type="hidden" id="driverSelectedInput" name="driver" value="">
+        <form action="driver_assigned.php" method="post">
+            <input type="hidden" id="orderSelectedInput" name="orderId" value="">
+            <input type="hidden" id="driverSelectedInput" name="driverId" value="">
             <button type="submit" id="modalConfirm">Confirm</button>
             <button id="modalCancel">Cancel</button>
         </form>
