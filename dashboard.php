@@ -7,17 +7,23 @@ require_once(__DIR__ . '/includes/top.php');
 /* New object of Customers() */
 require_once(__DIR__ . '/includes/Dashboard_class.php');
 require_once(__DIR__ . '/includes/Drivers_class.php');
-
 $dayOrders = new Dashboard();
-
-//$timezone = date_default_timezone_get();
-$date = date('d/m/Y');
-echo ($date);
-
-$ordersResult = $dayOrders->listOpenOrders('2019-12-09');
 $drivers = new Drivers();
-/* Get a list of all drivers in DB */
+
 $driversResult = $drivers->listAvailable();
+
+if (!isset($_GET["date"]) || !$_GET["date"]) {
+    $date = date('Y-d-m');
+    //$date = '2019-12-09';
+} else {
+    $date = $_GET["date"];
+}
+//echo ($date);
+//$date = '2019-12-09';
+//$ordersResult = $dayOrders->listOpenOrders($date);
+
+/* Get a list of all drivers in DB */
+
 ?>
 
 <div id="confirmationModal" class="dontDisplay">
@@ -34,13 +40,43 @@ $driversResult = $drivers->listAvailable();
     </div>
 </div>
 
-<input type="date" id="dateInput" name="orderDate">
+<input type="date" id="dateInput" name="orderDate" value=<?= $date ?>>
 
 <form id="dashboardOrdersForm">
-    <?php
-    foreach ($ordersResult as $val) {
-        echo "<input type='radio' name='order' id='order$val[0]' value='$val[0]'><label for='order$val[0]'>$val[4] $val[5]</label>";
-    } ?>
+    <h1>Orders</h1>
+    <div id="latvia">
+        <h2>Latvia</h2>
+        <?php $result = $dayOrders->listOpenOrders($date, "Latvia");
+        foreach ($result as $val) {
+            echo "<input type='radio' name='order' id='order$val[0]' value='$val[0]'><label for='order$val[0]'>$val[2] $val[3]</label>";
+        }
+        ?>
+    </div>
+    <div id="denmark">
+        <h2>Denmark</h2>
+        <?php $result = $dayOrders->listOpenOrders($date, "Denmark");
+        foreach ($result as $val) {
+            echo "<input type='radio' name='order' id='order$val[0]' value='$val[0]'><label for='order$val[0]'>$val[2] $val[3]</label>";
+        }
+        ?>
+    </div>
+    <div id="norway">
+        <h2>Norway</h2>
+        <?php $result = $dayOrders->listOpenOrders($date, "Norway");
+        foreach ($result as $val) {
+            echo "<input type='radio' name='order' id='order$val[0]' value='$val[0]'><label for='order$val[0]'>$val[2] $val[3]</label>";
+        }
+        ?>
+    </div>
+    <div id="sweden">
+        <h2>Sweden</h2>
+        <?php $result = $dayOrders->listOpenOrders($date, "Sweden");
+        foreach ($result as $val) {
+            echo "<input type='radio' name='order' id='order$val[0]' value='$val[0]'><label for='order$val[0]'>$val[2] $val[3]</label>";
+        }
+        ?>
+    </div>
+
 </form>
 <form id="dashboardDriversForm">
     <?php
@@ -49,7 +85,7 @@ $driversResult = $drivers->listAvailable();
     } ?>
 </form>
 
-<form id="confirmForm" method="POST">
+<form id="confirm" method="POST">
     <h1>Order</h1>
     <p id="selectedOrderP"></p>
 

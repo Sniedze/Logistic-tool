@@ -12,9 +12,9 @@ require_once(__DIR__ . '/includes/send_email.php');
 
 $dashboard = new Dashboard();
 //$newAssignment = $dashboard->assignDriver($_POST["orderId"], $_POST["driverId"]);
-$customerEmail = $dashboard->getCustomerEmail(1);
+$customerEmail = $dashboard->getCustomerEmail($_POST["orderId"]);
 
-$driverEmail = $dashboard->getDriverEmail(1);
+$driverEmail = $dashboard->getDriverEmail($_POST["driverId"]);
 
 sendEmail($customerEmail, "customer");
 sendEmail($driverEmail, "driver");
