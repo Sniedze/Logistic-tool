@@ -10,7 +10,7 @@ require_once(__DIR__ . '/includes/Drivers_class.php');
 $dayOrders = new Dashboard();
 $drivers = new Drivers();
 
-$driversResult = $drivers->listAvailable();
+
 
 if (!isset($_GET["date"]) || !$_GET["date"]) {
     $date = date('Y-d-m');
@@ -18,6 +18,7 @@ if (!isset($_GET["date"]) || !$_GET["date"]) {
 } else {
     $date = $_GET["date"];
 }
+
 //echo ($date);
 //$date = '2019-12-09';
 //$ordersResult = $dayOrders->listOpenOrders($date);
@@ -80,8 +81,9 @@ if (!isset($_GET["date"]) || !$_GET["date"]) {
 </form>
 <form id="dashboardDriversForm">
     <?php
+    $driversResult = $drivers->listAvailable($date);
     foreach ($driversResult as $val) {
-        echo "<input type='radio' name='driver' id='driver$val[0]' value='$val[0]'><label for='driver$val[0]'>$val[4]</label>";
+        echo "<input type='radio' name='driver' id='driver$val[0]' value='$val[0]'><label for='driver$val[0]'>$val[2]</label>";
     } ?>
 </form>
 

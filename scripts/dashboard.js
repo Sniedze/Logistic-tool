@@ -71,6 +71,5 @@ document
   });
 //date change
 document.querySelector("#dateInput").addEventListener("change", function() {
-  console.log(this.value);
   window.location.href = `dashboard.php?date=${this.value}`;
 });
