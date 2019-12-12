@@ -22,7 +22,7 @@ for($i=0; $i<count($result);$i++){
 
    <div class="container">
         
-            <a href="new_order.php" class="btn-primary btn">New Order</a>
+            <a href="new_order.php" class="create-link">New Order</a>
             <h3>Orders</h3>
             <table class=" table table-striped">
                 <tr class="attribute-row">

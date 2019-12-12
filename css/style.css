@@ -17,9 +17,16 @@
   border: black 1px solid;
 }
 
+#OrdersBody .container .create-link {
+  position: absolute;
+  left: 40px;
+}
+#OrdersBody .container h3 {
+  text-align: center;
+}
 #OrdersBody .container table {
   background-color: #F5FAFC;
-  margin: 0 30px;
+  margin: 0 auto;
 }
 #OrdersBody .container table tbody .attribute-row {
   background-color: #274AAE;
@@ -48,8 +55,6 @@
 }
 
 nav {
-  position: fixed;
-  width: 100vw;
   height: 70px;
   display: -ms-flexbox;
   display: flex;
@@ -59,6 +64,7 @@ nav {
 }
 nav a {
   margin-left: 30px;
+  font-size: 1.2em;
 }
 
 html,
@@ -85,6 +91,11 @@ th {
 
 .dontDisplay {
   display: none;
+}
+
+.active {
+  background: rgba(39, 41, 50, 0.5);
+  color: #F5FAFC;
 }
 
 /*# sourceMappingURL=style.css.map */

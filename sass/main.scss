@@ -2,6 +2,9 @@
 @import "orders";
 @import "header";
 
+$grey-color: #B7C4CC;
+$light-grey-color:#F5FAFC;
+$dark-blue-color: #274AAE;
 
 @mixin title-font{
   font-family: 'Source Sans Pro', sans-serif;
@@ -31,5 +34,6 @@ th{
   display: none;
 }
 .active{
-  
-}
+  background: rgb(39,41,50,0.5);
+  color: $light-grey-color;
+  }
