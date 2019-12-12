@@ -1,4 +1,4 @@
-@import "dashboard";
+@import "index";
 @import "orders";
 @import "header";
 
@@ -28,7 +28,7 @@ th {
   @include title-font();
 }
 .validationError {
-  border: red 1px solid;
+  border: red 3px solid;
 }
 .dontDisplay {
   display: none;

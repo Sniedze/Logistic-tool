@@ -21,6 +21,27 @@
   margin-top: 70px;
 }
 
+#indexContent {
+  display: grid;
+  grid-auto-columns: 1fr 1fr;
+}
+#indexContent #map {
+  grid-column: 2;
+  height: calc(100vh - 70px);
+}
+#indexContent #dateInput {
+  display: block;
+  margin: 20px auto;
+  font-family: "Nunito", sans-serif;
+  color: #272932;
+  width: 200px;
+  height: 30px;
+}
+#indexContent #dashboardOrdersForm {
+  border: 3px #a2adb3 solid;
+  border-radius: 25px 25px 0px 0px;
+}
+
 #OrdersBody .container .create-link {
   position: absolute;
   left: 40px;
@@ -88,7 +109,7 @@ th {
 }
 
 .validationError {
-  border: red 1px solid;
+  border: red 3px solid;
 }
 
 .dontDisplay {

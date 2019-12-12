@@ -41,62 +41,69 @@ if (!isset($_GET["date"]) || !$_GET["date"]) {
     </div>
 </div>
 
-<input type="date" id="dateInput" name="orderDate" value=<?= $date ?>>
+<div id="indexContent">
+    <div id="left">
+        <input type="date" id="dateInput" name="orderDate" value=<?= $date ?>>
+        <form id="dashboardOrdersForm">
+            <h1>Pick a Cargo</h1>
+            <div id="latvia">
+                <h2>Latvia</h2>
+                <?php $result = $dayOrders->listOpenOrders($date, "Latvia");
+                foreach ($result as $val) {
+                    echo "<input type='radio' name='order' id='order$val[0]' value='$val[0]'><label for='order$val[0]'>$val[2] $val[3]</label>";
+                }
+                ?>
+            </div>
+            <div id="denmark">
+                <h2>Denmark</h2>
+                <?php $result = $dayOrders->listOpenOrders($date, "Denmark");
+                foreach ($result as $val) {
+                    echo "<input type='radio' name='order' id='order$val[0]' value='$val[0]'><label for='order$val[0]'>$val[2] $val[3]</label>";
+                }
+                ?>
+            </div>
+            <div id="norway">
+                <h2>Norway</h2>
+                <?php $result = $dayOrders->listOpenOrders($date, "Norway");
+                foreach ($result as $val) {
+                    echo "<input type='radio' name='order' id='order$val[0]' value='$val[0]'><label for='order$val[0]'>$val[2] $val[3]</label>";
+                }
+                ?>
+            </div>
+            <div id="sweden">
+                <h2>Sweden</h2>
+                <?php $result = $dayOrders->listOpenOrders($date, "Sweden");
+                foreach ($result as $val) {
+                    echo "<input type='radio' name='order' id='order$val[0]' value='$val[0]'><label for='order$val[0]'>$val[2] $val[3]</label>";
+                }
+                ?>
+            </div>
 
-<form id="dashboardOrdersForm">
-    <h1>Orders</h1>
-    <div id="latvia">
-        <h2>Latvia</h2>
-        <?php $result = $dayOrders->listOpenOrders($date, "Latvia");
-        foreach ($result as $val) {
-            echo "<input type='radio' name='order' id='order$val[0]' value='$val[0]'><label for='order$val[0]'>$val[2] $val[3]</label>";
-        }
-        ?>
+        </form>
+        <form id="dashboardDriversForm">
+            <h1>Pick a Truck</h1>
+            <?php
+            $driversResult = $drivers->listAvailable($date);
+            foreach ($driversResult as $val) {
+                echo "<input type='radio' name='driver' id='driver$val[0]' value='$val[0]'><label for='driver$val[0]'>$val[2]</label>";
+            } ?>
+        </form>
+
+        <form id="confirm" method="POST">
+            <h1>Order</h1>
+            <p id="selectedOrderP"></p>
+
+            <h1>Driver</h1>
+            <p id="selectedDriverP"></p>
+
+            <button type="submit" id="confirmAssignmentBtn">Assign</button>
+        </form>
     </div>
-    <div id="denmark">
-        <h2>Denmark</h2>
-        <?php $result = $dayOrders->listOpenOrders($date, "Denmark");
-        foreach ($result as $val) {
-            echo "<input type='radio' name='order' id='order$val[0]' value='$val[0]'><label for='order$val[0]'>$val[2] $val[3]</label>";
-        }
-        ?>
-    </div>
-    <div id="norway">
-        <h2>Norway</h2>
-        <?php $result = $dayOrders->listOpenOrders($date, "Norway");
-        foreach ($result as $val) {
-            echo "<input type='radio' name='order' id='order$val[0]' value='$val[0]'><label for='order$val[0]'>$val[2] $val[3]</label>";
-        }
-        ?>
-    </div>
-    <div id="sweden">
-        <h2>Sweden</h2>
-        <?php $result = $dayOrders->listOpenOrders($date, "Sweden");
-        foreach ($result as $val) {
-            echo "<input type='radio' name='order' id='order$val[0]' value='$val[0]'><label for='order$val[0]'>$val[2] $val[3]</label>";
-        }
-        ?>
-    </div>
+    <div id='map'></div>
+</div>
 
-</form>
-<form id="dashboardDriversForm">
-    <?php
-    $driversResult = $drivers->listAvailable($date);
-    foreach ($driversResult as $val) {
-        echo "<input type='radio' name='driver' id='driver$val[0]' value='$val[0]'><label for='driver$val[0]'>$val[2]</label>";
-    } ?>
-</form>
 
-<form id="confirm" method="POST">
-    <h1>Order</h1>
-    <p id="selectedOrderP"></p>
 
-    <h1>Driver</h1>
-    <p id="selectedDriverP"></p>
-
-    <button type="submit" id="confirmAssignmentBtn">Assign</button>
-</form>
-<div id='map' style='width: 400px; height: 300px;'></div>
 
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
