@@ -21,11 +21,11 @@ for($i=0; $i<count($result);$i++){
 ?>
 
    <div class="container">
-        <div class="row top-buffer">
+        
             <a href="new_order.php" class="btn-primary btn">New Order</a>
             <h3>Orders</h3>
             <table class=" table table-striped">
-                <tr>
+                <tr class="attribute-row">
                     <th>Order Id</th>                   
                     <th>Pickup Date</th>
                     <th>Customer Name</th>
@@ -36,8 +36,10 @@ for($i=0; $i<count($result);$i++){
                     <th>Status</th>
                     <th>Pickup Address</th>
                     <th>Delivery Address</th>
+                    <th class='empty-cell'></th>
+                    <th class='empty-cell'></th>
                     
-                    <th></th>
+                  
                 </tr>
 
                 <?php
@@ -48,10 +50,11 @@ for($i=0; $i<count($result);$i++){
                         echo "<td> $val[$i] </td>
                         ";
                     }                                 
-                    
+                                      
                     echo "<td> $val[11]</td>
-                    <td> $val[16]</td><td style='text-align: right'> <a class='btn btn-primary' href='edit_order.php?id=$val[0]'>View and Edit</a> 
-                    <button class='remove'>Delete</button> 
+                    <td> $val[16]</td>
+                    <td class='open'> <a href='edit_order.php?id=$val[0]'><img src='images/open-button.png'></a> 
+                    <td class='remove'><img src='images/delete-button.png'></td> 
                      </td> 
                      </tr>";
                     }
@@ -59,7 +62,7 @@ for($i=0; $i<count($result);$i++){
 
                 ?>
             </table>
-        </div>
+       
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="scripts/delete_order_alert.js"></script>

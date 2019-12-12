@@ -29,7 +29,9 @@ $result = $trucks->list();
                     echo "<tr>";
                     for($i=0; $i < count($val); $i++){
                         echo "<td>" . $val[$i] . "</td>";
-                    }                   
+                    }  
+                    
+                    
                     
                     echo "<td style='text-align: right'> <a class='btn btn-primary' href='view_student.php?id=" . $val[0] . "'>View</a> 
                     <a class='btn btn-danger' href='delete_student.php?id=" . $val[0] . "'>Delete</a> 

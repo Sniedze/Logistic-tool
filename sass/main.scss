@@ -1,9 +1,28 @@
 @import "dashboard";
 @import "orders";
 @import "header";
+
+
+@mixin title-font{
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #272932;
+}
+@mixin paragraph-font{
+  font-family: 'Nunito', sans-serif;
+  color: #272932;
+}
+
 html,
 body {
   margin: 0 auto;
+  @include paragraph-font()
+;}
+a{
+  text-decoration: none;
+  @include title_font();
+}
+th{
+  @include title-font();
 }
 .validationError {
   border: red 1px solid;

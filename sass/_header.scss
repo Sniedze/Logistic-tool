@@ -1,6 +1,35 @@
-nav{height:50px;
+@mixin flexbox {
+    display: -ms-flexbox;
+    display: flex;
+  }
+  @mixin ligt-blue-color{
+    background-color: #81B3D6;
+  }
+  
+
+  @mixin title-font{
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #272932;
+  }
+  @mixin paragraph-font{
+    font-family: 'Nunito', sans-serif;
+    color: #272932;color: #272932;
+  }
+
+  @mixin table {
+    
+  }
+
+nav{
+    height:70px;
+    @include flexbox();
+    @include ligt-blue-color();
+    justify-content: left;
+    align-items: center;
+
     a{
-        text-decoration: none;
+     margin-left: 30px;
+    
 
     }
 }

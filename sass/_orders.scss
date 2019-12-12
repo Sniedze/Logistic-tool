@@ -1,6 +1,75 @@
+$grey-color: #B7C4CC;
+$light-grey-color:#F5FAFC;
+$dark-blue-color: #274AAE;
 
+@mixin even(){
+  &:nth-child(even) {
+    @content
+  }
+}
+
+@mixin display-grid {
+    display: -ms-grid;
+    display: grid;
+  }
+  @mixin flexbox {
+    display: -ms-grid;
+    display: flex;
+  }
+
+  
 #OrdersBody{
-    .form_part{
+   .container{
+     
+     a{
+
+     }
+     h3{       
+     }
+     table{   
+      background-color: $light-grey-color;
+      
+       margin: 0 30px;
+       tbody{
+       
+        .attribute-row{
+          background-color: $dark-blue-color;
+         
+          .empty-cell{
+            background-color: $dark-blue-color;
+            width: 30px;
+          }
+          th{
+            color: $light-grey-color;
+            margin: 0 auto;
+            width: 115px;
+          }
+
+        }
+         tr{
+          @include even()
+          {
+            background:$grey-color;
+          }
+           td{
+             text-align: center;
+             width: 115px;
+           }
+           .remove, .open{
+             width: 30px;
+            
+             a{
+               margin: 0;
+             }
+           }
+           
+           
+
+         }
         
-    }
+       }
+     }
+   }
+        
+   
 }
