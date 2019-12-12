@@ -280,7 +280,7 @@ class Orders
         $con = $db->connect();
 
         if ($con) {
-            $stmt = $con->prepare("UPDATE shipment_order SET order_status_id = (SELECT order_status_id FROM order_status WHERE satus_name = ?) WHERE order_id = ?;");
+            $stmt = $con->prepare("UPDATE shipment_order SET order_status_id = (SELECT order_status_id FROM order_status WHERE status_name = ?) WHERE order_id = ?;");
             $stmt->execute([$status_name, $id]);
 
             $stmt = null;

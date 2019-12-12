@@ -17,6 +17,13 @@
   border: black 1px solid;
 }
 
+nav {
+  height: 50px;
+}
+nav a {
+  text-decoration: none;
+}
+
 html,
 body {
   margin: 0 auto;
