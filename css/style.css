@@ -17,6 +17,10 @@
   border: black 1px solid;
 }
 
+#IndexBody {
+  margin-top: 70px;
+}
+
 #OrdersBody .container table {
   background-color: #F5FAFC;
   margin: 0 30px;
@@ -48,12 +52,10 @@
 }
 
 nav {
-  position: fixed;
-  width: 100vw;
   height: 70px;
   display: -ms-flexbox;
   display: flex;
-  background-color: #81B3D6;
+  background-color: #81b3d6;
   justify-content: left;
   align-items: center;
 }
