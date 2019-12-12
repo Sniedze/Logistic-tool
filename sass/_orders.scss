@@ -20,16 +20,20 @@ $dark-blue-color: #274AAE;
   
 #OrdersBody{
    .container{
+    
      
-     a{
+     .create-link{
+    position: absolute;
+    left: 40px;
 
      }
-     h3{       
+     h3{  
+       text-align: center;     
      }
      table{   
       background-color: $light-grey-color;
       
-       margin: 0 30px;
+      margin: 0 auto;
        tbody{
        
         .attribute-row{
@@ -42,7 +46,7 @@ $dark-blue-color: #274AAE;
           th{
             color: $light-grey-color;
             margin: 0 auto;
-            width: 115px;
+            //width: 115px;
           }
 
         }
@@ -53,7 +57,7 @@ $dark-blue-color: #274AAE;
           }
            td{
              text-align: center;
-             width: 115px;
+             //width: 115px;
            }
            .remove, .open{
              width: 30px;
