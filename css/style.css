@@ -17,16 +17,66 @@
   border: black 1px solid;
 }
 
+#OrdersBody .container table {
+  background-color: #F5FAFC;
+  margin: 0 30px;
+}
+#OrdersBody .container table tbody .attribute-row {
+  background-color: #274AAE;
+}
+#OrdersBody .container table tbody .attribute-row .empty-cell {
+  background-color: #274AAE;
+  width: 30px;
+}
+#OrdersBody .container table tbody .attribute-row th {
+  color: #F5FAFC;
+  margin: 0 auto;
+  width: 115px;
+}
+#OrdersBody .container table tbody tr:nth-child(even) {
+  background: #B7C4CC;
+}
+#OrdersBody .container table tbody tr td {
+  text-align: center;
+  width: 115px;
+}
+#OrdersBody .container table tbody tr .remove, #OrdersBody .container table tbody tr .open {
+  width: 30px;
+}
+#OrdersBody .container table tbody tr .remove a, #OrdersBody .container table tbody tr .open a {
+  margin: 0;
+}
+
 nav {
-  height: 50px;
+  position: fixed;
+  width: 100vw;
+  height: 70px;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #81B3D6;
+  justify-content: left;
+  align-items: center;
 }
 nav a {
-  text-decoration: none;
+  margin-left: 30px;
 }
 
 html,
 body {
   margin: 0 auto;
+  font-family: "Nunito", sans-serif;
+  color: #272932;
+}
+
+a {
+  text-decoration: none;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #272932;
+}
+
+th {
+  font-family: "Source Sans Pro", sans-serif;
+  color: #272932;
 }
 
 .validationError {
