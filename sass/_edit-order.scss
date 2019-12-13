@@ -1,0 +1,81 @@
+$grey-color: #DCE1E3;
+$light-grey-color:#F5FAFC;
+$bright_blue-color: #274AAE;
+$dark_blue-color: #456D8A;
+$light-blue-color: #81B3D6;
+$dark-grey-color:  #272932;
+
+@mixin display-grid(){
+    display: grid;   
+   grid-gap: 10px;
+}
+@mixin grid-template-columns($columns){
+    grid-template-columns: repeat($columns, 180px);
+}
+
+.order_container{
+    width: 70vw;
+    margin: 100px auto;
+.form-horizontal{
+   
+    
+    #form_general_info, #form_pickup_info, #form_delivery_info{       
+        margin-bottom: 50px;;    
+        @include display-grid();
+        @include grid-template-columns(6);
+        grid-template-rows: repeat(2, auto);
+        h4{
+            grid-column: 1/7;
+            margin: 0;
+        }
+        .form-group{
+            @include display-grid();
+            @include grid-template-columns(1);
+            width: 70%;
+            border-bottom: solid 1px $light_blue-color;
+            label{ 
+                color: $dark_blue-color;
+                        }
+            .input{
+                border: none;
+                font-size: 1em;
+            }
+            select{
+                border: none;
+                width: 100px;
+                font-size: 1em;
+            }
+            
+        }
+
+    }
+   .submit_button{
+       width: 120px;
+       margin: 0 auto;
+       position: relative;
+       cursor: pointer;
+      
+        img{
+            width: 60px;
+            height: auto;
+            position: absolute;
+            z-index: 100;
+            left: 70px;
+            }
+        .btn{
+                border: none;
+                background-color: $light-blue-color;
+                height: 40px;
+                width: 100px;
+                border-radius: 10px;
+                text-align: center;
+                font-size: 1em;
+                position: absolute;
+                color: $light-grey-color;
+                top: 10px;
+                cursor: pointer;
+            }
+   }
+
+}
+}

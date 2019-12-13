@@ -13,7 +13,7 @@ require_once(__DIR__. '/includes/top.php');
 require_once(__DIR__ . '/includes/Orders_class.php');
     ?>
     <div class="container">
-            <h3>New Order</h3>
+            <h2>New Order</h2>
             <div class="form_container">
                 <form class="form-horizontal" method="POST" action="new_order_created.php">
                     <div class="form-group">

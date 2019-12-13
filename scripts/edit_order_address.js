@@ -1,9 +1,8 @@
 //////////////////////Update Order///////////////////////////////////////////
 $("#save_button").click(function(event) {
-    console.log("Clicked");
+    
       event.preventDefault();
-      var values = $("#form").serialize();
-      console.log(values);     
+      
       var sPickupCompany = $("#pickup_company").val();
       var sPickupStreet = $("#pickup_street").val();     
       var sPickupAddressId = $("#pickup_address_id").val(); 
@@ -32,7 +31,7 @@ $("#save_button").click(function(event) {
          .done(data => {
            if (data) {
             
-             console.log(data);
+             
           }
          })
          .fail(() => {

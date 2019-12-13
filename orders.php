@@ -22,8 +22,8 @@ for($i=0; $i<count($result);$i++){
 
    <div class="container">
         
-            <a href="new_order.php" class="create-link"><img src="images/create-button.png"> New Order</a>
-            <h3>Orders</h3>
+            <a href="new_order.php" class="action_link"><img src="images/create-button.png"> New Order</a>
+            <h2>Orders</h2>
             <table class=" table table-striped">
                 <tr class="attribute-row">
                     <th>Order Id</th>                   

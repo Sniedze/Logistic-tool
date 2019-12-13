@@ -1,6 +1,6 @@
 /////////////////////Update Order///////////////////////////////////////////
 $("#save_button").click(function(event) {
-    console.log("Clicked");
+    
       event.preventDefault();
      
       var sPickupCity = $("#pickup_city").val();
@@ -34,8 +34,8 @@ $("#save_button").click(function(event) {
        })
          .done(data => {
            if (data) {
+            $("#order_update_note").text('Order Updated!');
             
-             console.log(data);
           }
          })
          .fail(() => {

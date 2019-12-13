@@ -26,18 +26,21 @@ class Drivers
         } else
             return false;
     }
-    function listAvailable()
+    function listAvailable($date)
     {
         $db = new DB();
         $con = $db->connect();
         if ($con) {
             $results = [];
 
-            $stmt = $con->prepare("SELECT * FROM driver WHERE available=1");
-            $stmt->execute();
+            $stmt = $con->prepare("SELECT d.driver_id, email, truck_number FROM shipment_order AS so
+            INNER JOIN order_driver AS od ON so.order_id=od.order_id
+            INNER JOIN driver AS d ON od.driver_id=d.driver_id
+            WHERE delivery_date=?");
+            $stmt->execute([$date]);
 
             while ($row = $stmt->fetch())
-                $results[] = [$row["driver_id"], $row["first_name"], $row["last_name"], $row["email"], $row["truck_number"]];
+                $results[] = [$row["driver_id"], $row["email"], $row["truck_number"]];
 
             $stmt = null;
             $db->disconnect($con);

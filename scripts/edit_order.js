@@ -1,9 +1,9 @@
 //////////////////////Update Order///////////////////////////////////////////
-$("#save_button").click(function(event) {
-  console.log("Clicked");
+$(".submit_button").click(function(event) {
+  
     event.preventDefault();
-    var values = $("#form").serialize();
-    console.log(values);
+    
+    
     var sOrderId = $("#order_id").val();
     var sCustomerName = $("#customer_name").val();
     var sPickupDate = $("#pickup_date").val();
@@ -29,7 +29,8 @@ $("#save_button").click(function(event) {
        .done(data => {
          if (data) {
            $("#company_name").text(sCustomerName);
-           console.log(data);
+           
+          
         }
        })
        .fail(() => {

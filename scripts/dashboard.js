@@ -35,12 +35,12 @@ document
     //add validation styling
     if (checkOrder == null) {
       document
-        .querySelector("#dashboardOrdersForm")
+        .querySelector("#dashboardOrdersForm input")
         .classList.add("validationError");
     }
     if (checkDriver == null) {
       document
-        .querySelector("#dashboardDriversForm")
+        .querySelector("#dashboardDriversForm input")
         .classList.add("validationError");
     }
     if (checkOrder && checkDriver) {
@@ -71,5 +71,5 @@ document
   });
 //date change
 document.querySelector("#dateInput").addEventListener("change", function() {
-  console.log("datechange");
+  window.location.href = `index.php?date=${this.value}`;
 });

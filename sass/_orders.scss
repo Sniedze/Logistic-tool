@@ -7,15 +7,11 @@ $dark-grey-color:  #272932;
 
 @mixin even(){
   &:nth-child(even) {
-    @content
+    @content;
   }
 }
 
-@mixin display-grid {
-    display: -ms-grid;
-    display: grid;
-  }
-  @mixin flexbox {
+ @mixin flexbox() {
     display: -ms-grid;
     display: flex;
   }
@@ -23,18 +19,8 @@ $dark-grey-color:  #272932;
   
 #OrdersBody{
    .container{
+    margin-top: 100px;  
     
-     
-     .create-link{
-    position: absolute;
-    left: 200px;
-    color: $dark_blue-color;
-    font-size: 1.3em;
-
-     }
-     h3{  
-       text-align: center;     
-     }
      table{   
       background-color: $light-grey-color;
       border-radius: 0 0 10px 10px;
@@ -50,8 +36,7 @@ $dark-grey-color:  #272932;
             width: 30px;
           }
           th{
-            color:$dark-grey-color;
-            
+            color:$dark-grey-color;            
             padding: 10px;
             
           }

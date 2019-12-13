@@ -17,14 +17,12 @@
   border: black 1px solid;
 }
 
-#OrdersBody .container .create-link {
-  position: absolute;
-  left: 200px;
-  color: #456D8A;
-  font-size: 1.3em;
+#IndexBody {
+  margin-top: 70px;
 }
-#OrdersBody .container h3 {
-  text-align: center;
+
+#OrdersBody .container {
+  margin-top: 100px;
 }
 #OrdersBody .container table {
   background-color: #F5FAFC;
@@ -69,11 +67,82 @@ nav {
   background-color: #456D8A;
   justify-content: left;
   align-items: center;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  margin-bottom: 80px;
 }
 nav a {
   margin-left: 30px;
   font-size: 1.2em;
   color: #F5FAFC;
+  width: 130px;
+  text-align: center;
+}
+
+.order_container {
+  width: 70vw;
+  margin: 100px auto;
+}
+.order_container .form-horizontal #form_general_info, .order_container .form-horizontal #form_pickup_info, .order_container .form-horizontal #form_delivery_info {
+  margin-bottom: 50px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(6, 180px);
+  grid-template-rows: repeat(2, auto);
+}
+.order_container .form-horizontal #form_general_info h4, .order_container .form-horizontal #form_pickup_info h4, .order_container .form-horizontal #form_delivery_info h4 {
+  grid-column: 1/7;
+  margin: 0;
+}
+.order_container .form-horizontal #form_general_info .form-group, .order_container .form-horizontal #form_pickup_info .form-group, .order_container .form-horizontal #form_delivery_info .form-group {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(1, 180px);
+  width: 70%;
+  border-bottom: solid 1px #81B3D6;
+}
+.order_container .form-horizontal #form_general_info .form-group label, .order_container .form-horizontal #form_pickup_info .form-group label, .order_container .form-horizontal #form_delivery_info .form-group label {
+  color: #456D8A;
+}
+.order_container .form-horizontal #form_general_info .form-group .input, .order_container .form-horizontal #form_pickup_info .form-group .input, .order_container .form-horizontal #form_delivery_info .form-group .input {
+  border: none;
+  font-size: 1em;
+}
+.order_container .form-horizontal #form_general_info .form-group select, .order_container .form-horizontal #form_pickup_info .form-group select, .order_container .form-horizontal #form_delivery_info .form-group select {
+  border: none;
+  width: 100px;
+  font-size: 1em;
+}
+.order_container .form-horizontal .submit_button {
+  width: 120px;
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+}
+.order_container .form-horizontal .submit_button img {
+  width: 60px;
+  height: auto;
+  position: absolute;
+  z-index: 100;
+  left: 70px;
+}
+.order_container .form-horizontal .submit_button .btn {
+  border: none;
+  background-color: #81B3D6;
+  height: 40px;
+  width: 100px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1em;
+  position: absolute;
+  color: #F5FAFC;
+  top: 10px;
+  cursor: pointer;
+}
+
+h4, h2 {
+  text-align: center;
 }
 
 html,
@@ -87,6 +156,13 @@ a {
   text-decoration: none;
   font-family: "Source Sans Pro", sans-serif;
   color: #272932;
+}
+
+.action_link {
+  position: absolute;
+  left: 200px;
+  color: #456D8A;
+  font-size: 1.3em;
 }
 
 th {
@@ -103,8 +179,9 @@ th {
 }
 
 .active {
-  background: rgba(39, 41, 50, 0.5);
+  background: rgba(39, 41, 50, 0.4);
   color: #F5FAFC;
+  padding: 23px 0 23px 0;
 }
 
 h3 {

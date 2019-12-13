@@ -15,7 +15,7 @@ $result = $drivers->list();
    <div class="container">
         <div class="row top-buffer">
             <a href="add_driver.php" class="btn-primary btn">New Driver</a>
-            <h3>Drivers</h3>
+            <h2>Drivers</h2>
             <table class=" table table-striped">
                 <tr>
                     <th>Driver Id</th>

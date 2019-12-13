@@ -30,12 +30,13 @@ foreach ($customerList as $name){
     $names[] = $name[1];     
 };
 ?>
-<div class="container">
-       
-        <h3>Edit order from <span id="company_name"><?= $order[2]?></span></h3>
+<div class="order_container">
+<a href="orders.php" class="action_link"><img src="images/back-button.png"> Back to Orders</a>
+        <h2>Edit order from <span id="company_name"><?= $order[2]?></span></h2>
         
                 <form class="form-horizontal" id="form">    
-                    <div class="form_part" id="form_general_info">                
+                    <div class="form_part" id="form_general_info"> 
+                        <h4>General Information</h3>               
                         <input class="input" type="hidden" id="order_id" name="order_id" value="<?= $id ?>">
                         <input class="input" type="hidden" id="pickup_address_id" name="pickup_address_id" value="<?= $order[13] ?>">
                         <input class="input" type="hidden" id="pickup_location_id" name="pickup_location_id" value="<?= $order[14] ?>">
@@ -68,7 +69,7 @@ foreach ($customerList as $name){
                         </div>
                         <div class="form-group">
                         <label for="truck_number" class="col-sm-2 control-label">Truck Number</label>
-                        <div id="truck_number"  name="truck_number"><?= $order[6] ?>
+                        <div id="truck_number" class="input" name="truck_number"><?= $order[6] ?>
                         </div>
                     </div>
                     <div class="form-group">
@@ -87,6 +88,7 @@ foreach ($customerList as $name){
 
                 </div>
                 <div class="form_part" id="form_pickup_info">
+                <h4>Pickup Information</h3>
                     <div class="form-group">
                         <label for="pickup_date" class="col-sm-2 control-label">Pickup Date</label>
                         <div class="col-sm-10">
@@ -126,6 +128,7 @@ foreach ($customerList as $name){
                     </div>
                 </div>
                 <div class="form_part" id="form_delivery_info">
+                <h4>Delivery Information</h3>
                     <div class="form-group">
                         <label for="delivery_date" class="col-sm-2 control-label">Delivery Date</label>
                         <div class="col-sm-10">
@@ -165,13 +168,15 @@ foreach ($customerList as $name){
                 </div>
                    
 
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <input class="btn btn-primary" id="save_button" value="Save">
+                    
+                        <div class="submit_button">
+                            <img src="images/submit-button.png" alt="">
+                            <input type="submit" class="btn" id="save_button" value="Save">
                         </div>
-                    </div>
+                   
                                     
                 </form>
+                <div class="notification"><h3 id="order_update_note" >Test</h3></div>
            
         </div>
 

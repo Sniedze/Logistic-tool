@@ -29,11 +29,18 @@ nav{
     background-color: $dark_blue-color;
     justify-content: left;
     align-items: center;
+    position: fixed;
+    width: 100vw;
+    top:0;
+    margin-bottom: 80px;
 
     a{
      margin-left: 30px;
      font-size: 1.2em;
     color: $light-grey-color;
+    width: 130px;
+    text-align: center;
 
-    }
+
+  }
 }

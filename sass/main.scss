@@ -1,10 +1,13 @@
 @import "dashboard";
 @import "orders";
 @import "header";
+@import "edit-order";
+
 
 $grey-color: #DCE1E3;
 $light-grey-color:#F5FAFC;
-$dark-blue-color: #274AAE;
+$bright_blue-color: #274AAE;
+$dark_blue-color: #456D8A;
 
 @mixin title-font{
   font-family: 'Source Sans Pro', sans-serif;
@@ -14,16 +17,27 @@ $dark-blue-color: #274AAE;
   font-family: 'Nunito', sans-serif;
   color: #272932;
 }
-
+h4, h2{
+  text-align: center;
+}
 html,
 body {
   margin: 0 auto;
   @include paragraph-font()
-;}
-a{
-  text-decoration: none;
-  @include title_font();
+;
 }
+a{
+  text-decoration: none; 
+  @include title_font();
+ 
+}
+.action_link{
+  position: absolute;
+  left: 200px;
+  color: $dark_blue-color;
+  font-size: 1.3em;
+
+   }
 th{
   @include title-font();
 }
@@ -34,8 +48,11 @@ th{
   display: none;
 }
 .active{
-  background: rgb(39,41,50,0.5);
+  background: rgb(39,41,50,0.4);
   color: $light-grey-color;
+  padding: 23px 0 23px 0;
+ 
+ 
   }
   h3{
     font-size: 1.4em;
