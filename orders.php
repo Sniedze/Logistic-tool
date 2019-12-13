@@ -22,7 +22,7 @@ for($i=0; $i<count($result);$i++){
 
    <div class="container">
         
-            <a href="new_order.php" class="create-link">New Order</a>
+            <a href="new_order.php" class="create-link"><img src="images/create-button.png"> New Order</a>
             <h3>Orders</h3>
             <table class=" table table-striped">
                 <tr class="attribute-row">
@@ -53,7 +53,7 @@ for($i=0; $i<count($result);$i++){
                                       
                     echo "<td> $val[11]</td>
                     <td> $val[16]</td>
-                    <td class='open'> <a href='edit_order.php?id=$val[0]'><img src='images/open-button.png'></a> 
+                    <td class='open'> <a href='edit_order.php?id=$val[0]'><img src='images/open-blue.png'></a> 
                     <td class='remove'><img src='images/delete-button.png'></td> 
                      </td> 
                      </tr>";

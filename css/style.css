@@ -19,33 +19,41 @@
 
 #OrdersBody .container .create-link {
   position: absolute;
-  left: 40px;
+  left: 200px;
+  color: #456D8A;
+  font-size: 1.3em;
 }
 #OrdersBody .container h3 {
   text-align: center;
 }
 #OrdersBody .container table {
   background-color: #F5FAFC;
+  border-radius: 0 0 10px 10px;
+  border: 2px solid #DCE1E3;
   margin: 0 auto;
 }
 #OrdersBody .container table tbody .attribute-row {
-  background-color: #274AAE;
+  background-color: #81B3D6;
+  margin: 0;
 }
 #OrdersBody .container table tbody .attribute-row .empty-cell {
-  background-color: #274AAE;
+  background-color: #81B3D6;
   width: 30px;
 }
 #OrdersBody .container table tbody .attribute-row th {
-  color: #F5FAFC;
-  margin: 0 auto;
-  width: 115px;
+  color: #272932;
+  padding: 10px;
+}
+#OrdersBody .container table tbody tr {
+  margin: 0;
 }
 #OrdersBody .container table tbody tr:nth-child(even) {
-  background: #B7C4CC;
+  background: #DCE1E3;
 }
 #OrdersBody .container table tbody tr td {
   text-align: center;
-  width: 115px;
+  padding: 5px 10px;
+  margin: 0;
 }
 #OrdersBody .container table tbody tr .remove, #OrdersBody .container table tbody tr .open {
   width: 30px;
@@ -58,13 +66,14 @@ nav {
   height: 70px;
   display: -ms-flexbox;
   display: flex;
-  background-color: #81B3D6;
+  background-color: #456D8A;
   justify-content: left;
   align-items: center;
 }
 nav a {
   margin-left: 30px;
   font-size: 1.2em;
+  color: #F5FAFC;
 }
 
 html,
@@ -96,6 +105,10 @@ th {
 .active {
   background: rgba(39, 41, 50, 0.5);
   color: #F5FAFC;
+}
+
+h3 {
+  font-size: 1.4em;
 }
 
 /*# sourceMappingURL=style.css.map */

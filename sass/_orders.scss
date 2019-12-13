@@ -1,6 +1,9 @@
-$grey-color: #B7C4CC;
+$grey-color: #DCE1E3;
 $light-grey-color:#F5FAFC;
-$dark-blue-color: #274AAE;
+$bright_blue-color: #274AAE;
+$dark_blue-color: #456D8A;
+$light-blue-color: #81B3D6;
+$dark-grey-color:  #272932;
 
 @mixin even(){
   &:nth-child(even) {
@@ -24,7 +27,9 @@ $dark-blue-color: #274AAE;
      
      .create-link{
     position: absolute;
-    left: 40px;
+    left: 200px;
+    color: $dark_blue-color;
+    font-size: 1.3em;
 
      }
      h3{  
@@ -32,32 +37,37 @@ $dark-blue-color: #274AAE;
      }
      table{   
       background-color: $light-grey-color;
-      
+      border-radius: 0 0 10px 10px;
+      border: 2px solid $grey-color;
       margin: 0 auto;
        tbody{
-       
+        
         .attribute-row{
-          background-color: $dark-blue-color;
-         
+          background-color: $light-blue-color;
+          margin: 0;
           .empty-cell{
-            background-color: $dark-blue-color;
+            background-color: $light-blue-color;
             width: 30px;
           }
           th{
-            color: $light-grey-color;
-            margin: 0 auto;
-            //width: 115px;
+            color:$dark-grey-color;
+            
+            padding: 10px;
+            
           }
 
         }
          tr{
+          margin: 0;
           @include even()
           {
             background:$grey-color;
           }
            td{
              text-align: center;
-             //width: 115px;
+             padding: 5px 10px;
+             margin: 0;
+             
            }
            .remove, .open{
              width: 30px;

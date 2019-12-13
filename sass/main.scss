@@ -2,7 +2,7 @@
 @import "orders";
 @import "header";
 
-$grey-color: #B7C4CC;
+$grey-color: #DCE1E3;
 $light-grey-color:#F5FAFC;
 $dark-blue-color: #274AAE;
 
@@ -36,4 +36,7 @@ th{
 .active{
   background: rgb(39,41,50,0.5);
   color: $light-grey-color;
+  }
+  h3{
+    font-size: 1.4em;
   }
