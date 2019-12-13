@@ -27,8 +27,60 @@ a {
 th {
   @include title-font();
 }
+/////////////////////////////RADIO BUTTON STYLING
+//hide default radio button
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.radioContainer {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+  border: 2px #81b3d6 solid;
+}
+.radioContainer:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.radioContainer input:checked ~ .checkmark {
+  background-color: transparent;
+  border: 2px #81b3d6 solid;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.radioContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+.radioContainer .checkmark:after {
+  top: 6px;
+  left: 6px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #81b3d6;
+}
+/////////////////////////////
 .validationError {
-  border: red 3px solid;
+  border: #db162f 3px solid !important; //Only !important because its a validation class, dynamically added, needs to overwrite any more specific styling.
 }
 .dontDisplay {
   display: none;

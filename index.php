@@ -13,7 +13,7 @@ $drivers = new Drivers();
 
 
 if (!isset($_GET["date"]) || !$_GET["date"]) {
-    $date = date('Y-d-m');
+    $date = date('Y-m-d');
     //$date = '2019-12-09';
 } else {
     $date = $_GET["date"];
@@ -50,7 +50,7 @@ if (!isset($_GET["date"]) || !$_GET["date"]) {
                 <h2>Latvia</h2>
                 <?php $result = $dayOrders->listOpenOrders($date, "Latvia");
                 foreach ($result as $val) {
-                    echo "<input type='radio' name='order' id='order$val[0]' value='$val[0]'><label for='order$val[0]'>$val[2] $val[3]</label>";
+                    echo "<label class='radioContainer' for='order$val[0]'>$val[2] $val[3]<input type='radio' name='order' id='order$val[0]' value='$val[0]'><span class='checkmark'></span></label>";
                 }
                 ?>
             </div>
@@ -58,7 +58,7 @@ if (!isset($_GET["date"]) || !$_GET["date"]) {
                 <h2>Denmark</h2>
                 <?php $result = $dayOrders->listOpenOrders($date, "Denmark");
                 foreach ($result as $val) {
-                    echo "<input type='radio' name='order' id='order$val[0]' value='$val[0]'><label for='order$val[0]'>$val[2] $val[3]</label>";
+                    echo "<label class='radioContainer' for='order$val[0]'>$val[2] $val[3]<input type='radio' name='order' id='order$val[0]' value='$val[0]'><span class='checkmark'></span></label>";
                 }
                 ?>
             </div>
@@ -66,7 +66,7 @@ if (!isset($_GET["date"]) || !$_GET["date"]) {
                 <h2>Norway</h2>
                 <?php $result = $dayOrders->listOpenOrders($date, "Norway");
                 foreach ($result as $val) {
-                    echo "<input type='radio' name='order' id='order$val[0]' value='$val[0]'><label for='order$val[0]'>$val[2] $val[3]</label>";
+                    echo "<label class='radioContainer' for='order$val[0]'>$val[2] $val[3]<input type='radio' name='order' id='order$val[0]' value='$val[0]'><span class='checkmark'></span></label>";
                 }
                 ?>
             </div>
@@ -74,7 +74,7 @@ if (!isset($_GET["date"]) || !$_GET["date"]) {
                 <h2>Sweden</h2>
                 <?php $result = $dayOrders->listOpenOrders($date, "Sweden");
                 foreach ($result as $val) {
-                    echo "<input type='radio' name='order' id='order$val[0]' value='$val[0]'><label for='order$val[0]'>$val[2] $val[3]</label>";
+                    echo "<label class='radioContainer' for='order$val[0]'>$val[2] $val[3]<input type='radio' name='order' id='order$val[0]' value='$val[0]'><span class='checkmark'></span></label>";
                 }
                 ?>
             </div>
@@ -85,16 +85,17 @@ if (!isset($_GET["date"]) || !$_GET["date"]) {
             <?php
             $driversResult = $drivers->listAvailable($date);
             foreach ($driversResult as $val) {
-                echo "<input type='radio' name='driver' id='driver$val[0]' value='$val[0]'><label for='driver$val[0]'>$val[2]</label>";
+                echo "<label class='radioContainer' for='driver$val[0]'>$val[2]<input type='radio' name='driver' id='driver$val[0]' value='$val[0]'><span class='checkmark'></span></label>";
             } ?>
         </form>
 
         <form id="confirm" method="POST">
-            <h1>Order</h1>
-            <p id="selectedOrderP"></p>
+            <h1>Overview</h1>
+            <h2>Order</h2>
+            <p id="selectedOrderP">TEXT TEST</p>
 
-            <h1>Driver</h1>
-            <p id="selectedDriverP"></p>
+            <h2>Driver</h2>
+            <p id="selectedDriverP">TEXT TEST</p>
 
             <button type="submit" id="confirmAssignmentBtn">Assign</button>
         </form>

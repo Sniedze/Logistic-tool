@@ -37,9 +37,80 @@
   width: 200px;
   height: 30px;
 }
-#indexContent #dashboardOrdersForm {
+#indexContent #dashboardOrdersForm,
+#indexContent #dashboardDriversForm,
+#indexContent #confirm {
   border: 3px #a2adb3 solid;
   border-radius: 25px 25px 0px 0px;
+}
+#indexContent #dashboardOrdersForm h1,
+#indexContent #dashboardOrdersForm h2,
+#indexContent #dashboardOrdersForm p,
+#indexContent #dashboardDriversForm h1,
+#indexContent #dashboardDriversForm h2,
+#indexContent #dashboardDriversForm p,
+#indexContent #confirm h1,
+#indexContent #confirm h2,
+#indexContent #confirm p {
+  text-align: center;
+}
+#indexContent #dashboardOrdersForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+#indexContent #dashboardOrdersForm h1 {
+  grid-column: 1/span 3;
+}
+#indexContent #dashboardOrdersForm div {
+  width: 1fr;
+  border: black solid;
+  border-width: 1px 0px 0px 0px;
+}
+#indexContent #dashboardOrdersForm div:nth-of-type(3n + 1) {
+  border-width: 0px 1px 1px 0px;
+}
+#indexContent #dashboardOrdersForm div:nth-of-type(3n + 2) {
+  border-width: 0px 0px 1px 0px;
+}
+#indexContent #dashboardOrdersForm div:nth-of-type(3n + 3) {
+  border-width: 0px 0px 1px 1px;
+}
+#indexContent #dashboardOrdersForm div:last-of-type {
+  border-width: 0px 1px 0px 0px;
+}
+#indexContent #dashboardDriversForm {
+  min-height: 300px;
+  border-radius: 0px 0px 25px 25px;
+}
+#indexContent #confirm {
+  border-radius: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50px 1fr 1fr 20px;
+}
+#indexContent #confirm h1 {
+  grid-column: 1/span 2;
+}
+#indexContent #confirm h2,
+#indexContent #confirm #selectedOrderP {
+  grid-column: 1;
+  grid-row: 2;
+  text-align: center;
+}
+#indexContent #confirm h2:nth-of-type(2) {
+  grid-column: 2;
+}
+#indexContent #confirm button {
+  grid-row: 4;
+  grid-column: 1/span 2;
+}
+#indexContent #confirm #selectedOrderP {
+  grid-row: 3;
+}
+#indexContent #confirm #selectedDriverP {
+  grid-column: 2;
+  grid-row: 3;
+  text-align: center;
 }
 
 #OrdersBody .container .create-link {
@@ -108,8 +179,65 @@ th {
   color: #272932;
 }
 
+input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radioContainer {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+  border: 2px #81b3d6 solid;
+}
+
+.radioContainer:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.radioContainer input:checked ~ .checkmark {
+  background-color: transparent;
+  border: 2px #81b3d6 solid;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.radioContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.radioContainer .checkmark:after {
+  top: 6px;
+  left: 6px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #81b3d6;
+}
+
 .validationError {
-  border: red 3px solid;
+  border: #db162f 3px solid !important;
 }
 
 .dontDisplay {

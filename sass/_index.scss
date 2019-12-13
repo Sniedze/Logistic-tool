@@ -39,8 +39,74 @@
     width: 200px;
     height: 30px;
   }
-  #dashboardOrdersForm {
+  #dashboardOrdersForm,
+  #dashboardDriversForm,
+  #confirm {
+    h1,
+    h2,
+    p {
+      text-align: center;
+    }
     border: 3px #a2adb3 solid;
     border-radius: 25px 25px 0px 0px;
+  }
+  #dashboardOrdersForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    h1 {
+      grid-column: 1 / span 3;
+    }
+    div {
+      width: 1fr;
+      border: black solid;
+      border-width: 1px 0px 0px 0px;
+    }
+    div:nth-of-type(3n + 1) {
+      border-width: 0px 1px 1px 0px;
+    }
+    div:nth-of-type(3n + 2) {
+      border-width: 0px 0px 1px 0px;
+    }
+    div:nth-of-type(3n + 3) {
+      border-width: 0px 0px 1px 1px;
+    }
+    div:last-of-type {
+      border-width: 0px 1px 0px 0px;
+    }
+  }
+  #dashboardDriversForm {
+    min-height: 300px;
+    border-radius: 0px 0px 25px 25px;
+  }
+  #confirm {
+    border-radius: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50px 1fr 1fr 20px;
+    h1 {
+      grid-column: 1 / span 2;
+    }
+    h2,
+    #selectedOrderP {
+      grid-column: 1;
+      grid-row: 2;
+      text-align: center;
+    }
+
+    h2:nth-of-type(2) {
+      grid-column: 2;
+    }
+    button {
+      grid-row: 4;
+      grid-column: 1 / span 2;
+    }
+    #selectedOrderP {
+      grid-row: 3;
+    }
+    #selectedDriverP {
+      grid-column: 2;
+      grid-row: 3;
+      text-align: center;
+    }
   }
 }
