@@ -289,6 +289,36 @@ class Orders
             return false;
     }
 
+    function getSearchResults($customer_name, $city, $country){
+        
+        $db = new DB();
+        $con = $db->connect();
+
+        if ($con) {
+            $stmt = $con->prepare("SELECT * FROM shipment_order AS so           
+            LEFT JOIN order_driver AS od USING (order_id)
+            LEFT JOIN driver AS d USING (driver_id)
+            LEFT JOIN truck AS t USING (truck_number)
+            LEFT JOIN customer AS c USING (customer_id)
+            LEFT JOIN shipment_address AS sa ON so.pickup_address_id = sa.address_id
+            LEFT JOIN shipment_address AS sha ON so.delivery_address_id = sha.address_id
+            LEFT JOIN order_location AS ol ON ol.location_id = sa.location_id
+            LEFT JOIN order_status AS os USING (order_status_id)            
+            WHERE c.customer_name LIKE ('%$customer_name%')
+            AND ol.city LIKE ('%$city%')
+            AND ol.country LIKE ('%$country%')
+            ORDER BY so.pickup_date;");
+            $stmt->execute();
+            while ($row = $stmt->fetch())
+            $searchResults[] = [$row["order_id"], $row["customer_name"], $row["pickup_date"], $row["company_name"], $row["street"], $row["city"], $row["postal_code"],  $row["country"], $row["product_name"], $row["size"], $row["delivery_date"], $row["truck_number"], $row["status_name"]];
+            
+            $stmt = null;
+            $db->disconnect($con);
+            return $searchResults;
+        } else
+            return false;
+    }
+
 
 }
 // BEGIN
