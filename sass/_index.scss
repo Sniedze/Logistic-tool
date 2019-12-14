@@ -1,0 +1,138 @@
+#confirmationModal {
+  position: fixed;
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgb(255, 255, 255, 0.9);
+  button {
+    font-size: 14pt;
+    width: 80px;
+    height: 40px;
+    margin: 0 0 20px;
+  }
+  button:first-of-type {
+    margin-right: 5px;
+    background-color: #81b3d6;
+  }
+  button:nth-of-type(2) {
+    margin-left: 5px;
+  }
+  #text {
+    position: relative;
+    background-color: rgb(255, 255, 255, 1);
+    width: 300px;
+    top: 100px;
+    margin: auto;
+    text-align: center;
+    border: 3px #b7c4cc solid;
+    border-radius: 25px;
+  }
+}
+#confirm {
+  h1 {
+  }
+}
+#IndexBody {
+}
+#indexContent {
+  #left {
+    width: 50vw;
+    margin-top: 120px;
+  }
+  #map {
+    position: fixed;
+    width: 50vw;
+    height: calc(100vh - 70px);
+    top: 70px;
+    left: 50vw;
+  }
+  #dateInput {
+    display: block;
+    margin: 20px auto;
+    font-family: "Nunito", sans-serif;
+    color: #272932;
+    width: 200px;
+    height: 30px;
+  }
+  #dashboardOrdersForm,
+  #dashboardDriversForm,
+  #confirm {
+    h1,
+    h2,
+    p {
+      text-align: center;
+    }
+    border: 3px #b7c4cc solid;
+    border-radius: 25px 25px 0px 0px;
+    width: calc(100% - 70px);
+    max-width: 900px;
+    margin: auto;
+    padding: 0 15px 15px;
+  }
+  #dashboardOrdersForm {
+    display: grid;
+    $border_width: 2px;
+    grid-template-columns: 1fr 1fr 1fr;
+    h1 {
+      grid-column: 1 / span 3;
+    }
+    div {
+      width: 1fr;
+      border: #b7c4cc solid;
+      border-width: $border_width 0px 0px 0px;
+    }
+    div:nth-of-type(3n + 1) {
+      border-width: 0px $border_width $border_width 0px;
+    }
+    div:nth-of-type(3n + 2) {
+      border-width: 0px 0px $border_width 0px;
+    }
+    div:nth-of-type(3n + 3) {
+      border-width: 0px 0px $border_width $border_width;
+    }
+    div:last-of-type {
+      border-width: 0px $border_width 0px 0px;
+    }
+  }
+  #dashboardDriversForm {
+    margin-top: 10px;
+    min-height: 200px;
+    border-radius: 0px 0px 25px 25px;
+  }
+  #confirm {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50px 1fr 1fr 50px;
+    h1 {
+      grid-column: 1 / span 2;
+    }
+    h2,
+    #selectedOrderP {
+      grid-column: 1;
+      grid-row: 2;
+      text-align: center;
+    }
+
+    h2:nth-of-type(2) {
+      grid-column: 2;
+    }
+    button {
+      margin: auto;
+      grid-row: 4;
+      grid-column: 1 / span 2;
+    }
+    #selectedOrderP {
+      grid-row: 3;
+    }
+    #selectedDriverP {
+      grid-column: 2;
+      grid-row: 3;
+      text-align: center;
+    }
+  }
+}

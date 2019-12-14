@@ -1,20 +1,29 @@
 let dashBoardForms = document.querySelectorAll(
   "#dashboardOrdersForm, #dashboardDriversForm"
 );
+
 dashBoardForms.forEach(elm =>
   elm.addEventListener("change", function(evt) {
-    document.querySelectorAll("#selectDriverP", "#selectOrderP");
-
-    if (evt.target.parentElement.id == "dashboardOrdersForm") {
-      evt.target.parentElement.classList.remove("validationError");
+    let checkOrder = document.querySelector('input[name="order"]:checked');
+    let checkDriver = document.querySelector('input[name="driver"]:checked');
+    if (checkOrder && checkDriver) {
+      document.querySelector("#confirmAssignmentBtn").style.backgroundColor =
+        "#81b3d6";
+    }
+    if (evt.target.name == "order") {
+      document
+        .querySelector("#dashboardOrdersForm")
+        .classList.remove("validationError");
       //Take text from the label associated with the selected radio button , put it into a paragraph.
       document.querySelector("#selectedOrderP").textContent = $(
         'label[for="' + evt.target.id + '"]'
       ).text();
       //Set hidden input value to selected one, for confirmation of the link.
       document.querySelector("#orderSelectedInput").value = evt.target.value;
-    } else if (evt.target.parentElement.id == "dashboardDriversForm") {
-      evt.target.parentElement.classList.remove("validationError");
+    } else if (evt.target.name == "driver") {
+      document
+        .querySelector("#dashboardDriversForm")
+        .classList.remove("validationError");
       //Take text from the label associated with the selected radio button , put it into a paragraph.
       document.querySelector("#selectedDriverP").textContent = $(
         'label[for="' + evt.target.id + '"]'
@@ -35,12 +44,12 @@ document
     //add validation styling
     if (checkOrder == null) {
       document
-        .querySelector("#dashboardOrdersForm input")
+        .querySelector("#dashboardOrdersForm")
         .classList.add("validationError");
     }
     if (checkDriver == null) {
       document
-        .querySelector("#dashboardDriversForm input")
+        .querySelector("#dashboardDriversForm")
         .classList.add("validationError");
     }
     if (checkOrder && checkDriver) {
@@ -58,7 +67,8 @@ document
       //cancel
       document
         .querySelector("#modalCancel")
-        .addEventListener("click", function() {
+        .addEventListener("click", function(e) {
+          e.preventDefault();
           document
             .querySelector("#confirmationModal")
             .classList.add("dontDisplay");

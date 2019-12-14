@@ -1,59 +1,128 @@
-@import "dashboard";
+@import "index";
 @import "orders";
 @import "header";
 @import "edit-order";
 
+$grey-color: #dce1e3;
+$light-grey-color: #f5fafc;
+$bright_blue-color: #274aae;
+$dark_blue-color: #456d8a;
 
-$grey-color: #DCE1E3;
-$light-grey-color:#F5FAFC;
-$bright_blue-color: #274AAE;
-$dark_blue-color: #456D8A;
-
-@mixin title-font{
-  font-family: 'Source Sans Pro', sans-serif;
+@mixin title-font {
+  font-family: "Source Sans Pro", sans-serif;
   color: #272932;
 }
-@mixin paragraph-font{
-  font-family: 'Nunito', sans-serif;
+@mixin paragraph-font {
+  font-family: "Nunito", sans-serif;
   color: #272932;
 }
-h4, h2{
+h4,
+h2 {
   text-align: center;
 }
 html,
 body {
   margin: 0 auto;
-  @include paragraph-font()
-;
+  @include paragraph-font();
 }
-a{
-  text-decoration: none; 
+a {
+  text-decoration: none;
   @include title_font();
- 
 }
-.action_link{
+.action_link {
   position: absolute;
   left: 200px;
   color: $dark_blue-color;
   font-size: 1.3em;
-
-   }
-th{
+}
+th {
   @include title-font();
 }
+button {
+  cursor: pointer;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: #b7c4cc;
+}
+button:focus {
+  outline: 0;
+}
+.confirmBtn {
+  font-size: 15pt;
+  width: 100px;
+  height: 40px;
+}
+.confirmBtn:hover {
+}
+.cancelBtn {
+}
+
+/////////////////////////////RADIO BUTTON STYLING
+//hide default radio button
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.radioContainer {
+  display: block;
+  position: relative;
+  padding-left: 50px;
+  margin: 0px 0px 15px 20px;
+  line-height: 30px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 2px #81b3d6 solid;
+}
+.radioContainer:hover input ~ .checkmark {
+  background-color: #b7c4cc;
+}
+.radioContainer input:checked ~ .checkmark {
+  background-color: transparent;
+  border: 2px #81b3d6 solid;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.radioContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+.radioContainer .checkmark:after {
+  top: 6px;
+  left: 6px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #81b3d6;
+}
+/////////////////////////////
 .validationError {
-  border: red 1px solid;
+  border: #db162f 3px solid !important; //Only !important because its a validation class, dynamically added, needs to overwrite any more specific styling.
 }
 .dontDisplay {
   display: none;
 }
-.active{
-  background: rgb(39,41,50,0.4);
+.active {
+  background: rgb(39, 41, 50, 0.4);
   color: $light-grey-color;
   padding: 23px 0 23px 0;
- 
- 
-  }
-  h3{
-    font-size: 1.4em;
-  }
+}
+h3 {
+  font-size: 1.4em;
+}
