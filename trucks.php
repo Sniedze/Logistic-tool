@@ -14,28 +14,30 @@ $result = $trucks->list();
 
    <div class="container">
         <div class="row top-buffer">
-            <a href="add_truck.php" class="btn-primary btn">New Truck</a>
-            <h3>Trucks</h3>
+            <a href="add_truck.php" class="action_link"><img src="images/create-button.png"> New Truck</a>
+            <h2>Trucks</h2>
             <table class=" table table-striped">
-                <tr>                     
+                <tr class="attribute-row">                     
                     <th>Registration number</th>
                     <th>Capacity</th>
                     <th>Registration Date</th>
+                    <th class="empty-cell"></th>
+                    <th class="empty-cell"></th>
                 </tr>
 
                 <?php
 
                 foreach ($result as $val) {
                     echo "<tr>";
+                    
                     for($i=0; $i < count($val); $i++){
                         echo "<td>" . $val[$i] . "</td>";
                     }  
                     
                     
                     
-                    echo "<td style='text-align: right'> <a class='btn btn-primary' href='view_student.php?id=" . $val[0] . "'>View</a> 
-                    <a class='btn btn-danger' href='delete_student.php?id=" . $val[0] . "'>Delete</a> 
-                    <a class='btn btn-primary' href='edit_student.php?id=" . $val[0] . "'>Edit</a> </td>";
+                    echo "<td class='open'> <a  href='view_truck.php?id=$val[0]'><img src='images/open-blue.png'></a></td>
+                           <td class='remove'><img src='images/delete-button.png'></td>";
                     echo "</tr>";
                 }
 

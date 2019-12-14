@@ -32,7 +32,8 @@ nav{
     position: fixed;
     width: 100vw;
     top:0;
-    margin-bottom: 80px;
+    z-index: 200;
+    
 
     a{
      margin-left: 30px;

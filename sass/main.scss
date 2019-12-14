@@ -2,6 +2,7 @@
 @import "orders";
 @import "header";
 @import "edit-order";
+@import "modal";
 
 $grey-color: #dce1e3;
 $light-grey-color: #f5fafc;
@@ -24,6 +25,119 @@ html,
 body {
   margin: 0 auto;
   @include paragraph-font();
+  .order_container{
+    width: 70vw;
+    margin: 100px auto;
+.form-horizontal{
+   
+    
+   .form_part{       
+        margin-bottom: 50px;;    
+        @include display-grid();
+        @include grid-template-columns(6);
+        grid-template-rows: repeat(2, auto);
+        h4{
+            grid-column: 1/7;
+            margin: 0;
+        }
+        .form-group{
+            @include display-grid();
+            @include grid-template-columns(1);
+            width: 70%;
+            border-bottom: solid 1px $light_blue-color;
+            label{ 
+                color: $dark_blue-color;
+                        }
+            .input{
+                border: none;
+                font-size: 1em;
+                width: 70%;
+            }
+            select{
+                border: none;
+                width: 100px;
+                font-size: 1em;
+            }
+            
+        }
+
+    }
+   .submit_button{
+       width: 120px;
+       margin: 0 auto;
+       position: relative;
+       cursor: pointer;
+      
+        .btn{
+                border: none;
+                background-color: $light-blue-color;
+                height: 40px;
+                width: 100%;
+                border-radius: 10px;
+                text-align: center;
+                font-size: 1em;
+                color: $light-grey-color;
+                top: 10px;
+                cursor: pointer;
+            }
+   }
+
+}
+}
+  .container{
+    
+    margin-top: 100px;  
+    margin-bottom: 50px;
+    
+     table{   
+      background-color: $light-grey-color;
+      border-radius: 0 0 10px 10px;
+      border: 2px solid $grey-color;
+      margin: 0 auto;
+       tbody{
+        
+        .attribute-row{
+          background-color: $light-blue-color;
+          margin: 0;
+          .empty-cell{
+            background-color: $light-blue-color;
+            width: 30px;
+          }
+          th{
+            color:$dark-grey-color;            
+            padding: 10px;
+            
+          }
+
+        }
+         tr{
+          margin: 0;
+          @include even()
+          {
+            background:$grey-color;
+          }
+           td{
+             text-align: center;
+             padding: 5px 10px;
+             margin: 0;
+             
+           }
+           .remove, .open{
+             width: 30px;
+            
+             a{
+               margin: 0;
+             }
+           }
+           
+           
+
+         }
+        
+       }
+     }
+   }
+        
 }
 a {
   text-decoration: none;
@@ -34,8 +148,9 @@ a {
   left: 200px;
   color: $dark_blue-color;
   font-size: 1.3em;
-}
-th {
+  cursor: pointer;
+   }
+th{
   @include title-font();
 }
 button {

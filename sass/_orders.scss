@@ -18,7 +18,25 @@ $dark-grey-color:  #272932;
 
   
 #OrdersBody{
+  #clear_search_button{
+    top: 90px;
+  }
+  #order_container{
+    position: relative;
+    .trigger{
+      //position: absolute;
+      left: 350px;
+      top: 0;
+      color: $dark_blue-color;
+      font-size: 1.3em;
+      cursor: pointer;
+    #search_icon{
+      margin-right: 5px;
+    }
+       }
+  }
    .container{
+    
     margin-top: 100px;  
     
      table{   

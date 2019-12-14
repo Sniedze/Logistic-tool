@@ -170,13 +170,13 @@ foreach ($customerList as $name){
 
                     
                         <div class="submit_button">
-                            <img src="images/submit-button.png" alt="">
+                            
                             <input type="submit" class="btn" id="save_button" value="Save">
                         </div>
                    
                                     
                 </form>
-                <div class="notification"><h3 id="order_update_note" >Test</h3></div>
+                <div class="notification"><h3 id="order_update_note" ></h3></div>
            
         </div>
 

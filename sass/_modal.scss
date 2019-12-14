@@ -1,0 +1,103 @@
+$grey-color: #DCE1E3;
+$light-grey-color:#F5FAFC;
+$bright_blue-color: #274AAE;
+$dark_blue-color: #456D8A;
+$light-blue-color: #81B3D6;
+$dark-grey-color:  #272932;
+
+@mixin display-grid(){
+    display: grid;   
+   grid-gap: 0px;
+}
+@mixin grid-template-columns($columns){
+    grid-template-columns: repeat($columns, auto);
+}
+
+.modal {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(1.1);
+        transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color:$light-grey-color;
+            padding: 1rem 1.5rem;
+            width: 20rem;
+            height: 22rem;
+            border-radius: 10px;
+            .form-horizontal{  
+               margin-top: 80px;
+                   
+                    .form-group{
+                        @include display-grid();
+                        @include grid-template-columns(2);
+                        //width: 70%;
+                        border-bottom: solid 1px $light_blue-color;
+                        label{ 
+                            color: $dark_blue-color;
+                            margin-top: 15px;
+                            width: 50px;
+                                    }
+                        .input{
+                            border: none;
+                            font-size: 1em;
+                            background-color:$light-grey-color;
+                            height: 95%;
+                        }
+                        
+                    }
+            
+                
+               .submit_button{
+                   width: 120px;
+                   margin: 30px auto;
+                   position: relative;
+                   cursor: pointer;
+                  
+                   .btn{
+                            border: none;
+                            background-color: $light-blue-color;
+                            height: 40px;
+                            width: 120px;
+                            border-radius: 10px;
+                            text-align: center;
+                            font-size: 1em;
+                            color: $light-grey-color;
+                            top: 10px;
+                            cursor: pointer;
+                        }
+               }
+            
+            }
+            .close-button {
+                float: right;
+                width: 1.5rem;
+                line-height: 1.5rem;
+                text-align: center;
+                cursor: pointer;
+                border-radius: 0.25rem;
+                
+            }
+            .close-button:hover {
+                transform: scale(1.2)
+            }
+        }
+    }
+   
+    
+    .show-modal {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1.0);
+        transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+    }
+	

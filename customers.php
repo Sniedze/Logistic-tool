@@ -15,15 +15,16 @@ $result = $customers->list();
 
    <div class="container">
         <div class="row top-buffer">
-            <a href="add_customer.php" class="btn-primary btn">New Customer</a>
-            <h3>Customers</h3>
+            <a href="add_customer.php" class="action_link"><img src="images/create-button.png"> New Customer</a>
+            <h2>Customers</h2>
             <table class="table">
-                <tr>
+                <tr class="attribute-row">
                     <th>Id</th>                   
                     <th>Name</th>
                     <th>Registration number</th>
                     <th>Email</th>
-                    <th></th>
+                    <th class="empty-cell"></th>
+                    <th class="empty-cell"></th>
                 </tr>
 
                 <?php
@@ -34,10 +35,8 @@ $result = $customers->list();
                         echo "<td>$val[$i]</td>";
                     }                   
                     
-                    echo "<td style='text-align: right'> 
-                            <a class='btn btn-primary' href='customer.php?id=$val[0]&$val[1]'>View and Edit</a>
-                            <button class='remove'>Delete</button> 
-                          </td> 
+                    echo "<td class='open'> <a class='btn btn-primary' href='customer.php?id=$val[0]'><img src='images/open-blue.png'</a></td>
+                    <td class='remove'><img src='images/delete-button.png'></td>
                      </tr>";
                 }
 

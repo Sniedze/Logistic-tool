@@ -5,6 +5,23 @@ $dark_blue-color: #456D8A;
 $light-blue-color: #81B3D6;
 $dark-grey-color:  #272932;
 
+@mixin placeholders() {
+    ::-webkit-input-placeholder {
+      @content;
+    }
+    ::-moz-placeholder {
+      @content;
+    }
+  
+    :-ms-input-placeholder {
+      @content;
+    }
+  
+    input:-moz-placeholder {
+      @content;
+    }
+  }
+
 @mixin display-grid(){
     display: grid;   
    grid-gap: 10px;
@@ -14,12 +31,15 @@ $dark-grey-color:  #272932;
 }
 
 .order_container{
-    width: 70vw;
+    //width: 70vw;
     margin: 100px auto;
 .form-horizontal{
-   
+    @include placeholders {
+        color: rgb(35, 35, 35, 0.5);        
+        font-size: 15px;
+      }
     
-    #form_general_info, #form_pickup_info, #form_delivery_info{       
+    #form_general_info, #form_pickup_info, #form_delivery_info, .form_section{       
         margin-bottom: 50px;;    
         @include display-grid();
         @include grid-template-columns(6);
@@ -39,6 +59,8 @@ $dark-grey-color:  #272932;
             .input{
                 border: none;
                 font-size: 1em;
+                width: 70%;
+               
             }
             select{
                 border: none;
@@ -55,22 +77,14 @@ $dark-grey-color:  #272932;
        position: relative;
        cursor: pointer;
       
-        img{
-            width: 60px;
-            height: auto;
-            position: absolute;
-            z-index: 100;
-            left: 70px;
-            }
         .btn{
                 border: none;
                 background-color: $light-blue-color;
                 height: 40px;
-                width: 100px;
+                width: 100%;
                 border-radius: 10px;
                 text-align: center;
                 font-size: 1em;
-                position: absolute;
                 color: $light-grey-color;
                 top: 10px;
                 cursor: pointer;
