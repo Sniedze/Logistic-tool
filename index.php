@@ -92,12 +92,12 @@ if (!isset($_GET["date"]) || !$_GET["date"]) {
         <form id="confirm" method="POST">
             <h1>Overview</h1>
             <h2>Order</h2>
-            <p id="selectedOrderP">TEXT TEST</p>
+            <p id="selectedOrderP">...</p>
 
             <h2>Driver</h2>
-            <p id="selectedDriverP">TEXT TEST</p>
+            <p id="selectedDriverP">...</p>
 
-            <button type="submit" id="confirmAssignmentBtn">Assign</button>
+            <button type="submit" id="confirmAssignmentBtn" class="confirmBtn">Assign</button>
         </form>
     </div>
     <div id='map'></div>

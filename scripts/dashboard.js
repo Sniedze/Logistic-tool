@@ -1,10 +1,15 @@
 let dashBoardForms = document.querySelectorAll(
   "#dashboardOrdersForm, #dashboardDriversForm"
 );
+
 dashBoardForms.forEach(elm =>
   elm.addEventListener("change", function(evt) {
-    document.querySelectorAll("#selectDriverP", "#selectOrderP");
-
+    let checkOrder = document.querySelector('input[name="order"]:checked');
+    let checkDriver = document.querySelector('input[name="driver"]:checked');
+    if (checkOrder && checkDriver) {
+      document.querySelector("#confirmAssignmentBtn").style.backgroundColor =
+        "#81b3d6";
+    }
     if (evt.target.name == "order") {
       document
         .querySelector("#dashboardOrdersForm")

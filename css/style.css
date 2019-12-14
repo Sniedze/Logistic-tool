@@ -1,11 +1,24 @@
 #confirmationModal {
-  position: absolute;
+  position: fixed;
   z-index: 3;
   width: 100vw;
   height: 100vh;
   top: 0;
   left: 0;
   background-color: rgba(255, 255, 255, 0.9);
+}
+#confirmationModal button {
+  font-size: 14pt;
+  width: 80px;
+  height: 40px;
+  margin: 0 0 20px;
+}
+#confirmationModal button:first-of-type {
+  margin-right: 5px;
+  background-color: #81b3d6;
+}
+#confirmationModal button:nth-of-type(2) {
+  margin-left: 5px;
 }
 #confirmationModal #text {
   position: relative;
@@ -14,20 +27,23 @@
   top: 100px;
   margin: auto;
   text-align: center;
-  border: black 1px solid;
+  border: 3px #b7c4cc solid;
+  border-radius: 25px;
 }
 
 #IndexBody {
   margin-top: 70px;
 }
 
-#indexContent {
-  display: grid;
-  grid-auto-columns: 1fr 1fr;
+#indexContent #left {
+  width: 50vw;
 }
 #indexContent #map {
-  grid-column: 2;
+  position: fixed;
+  width: 50vw;
   height: calc(100vh - 70px);
+  top: 70px;
+  left: 50vw;
 }
 #indexContent #dateInput {
   display: block;
@@ -40,8 +56,12 @@
 #indexContent #dashboardOrdersForm,
 #indexContent #dashboardDriversForm,
 #indexContent #confirm {
-  border: 3px #a2adb3 solid;
+  border: 3px #b7c4cc solid;
   border-radius: 25px 25px 0px 0px;
+  width: calc(100% - 70px);
+  max-width: 900px;
+  margin: auto;
+  padding: 0 15px 15px;
 }
 #indexContent #dashboardOrdersForm h1,
 #indexContent #dashboardOrdersForm h2,
@@ -63,30 +83,33 @@
 }
 #indexContent #dashboardOrdersForm div {
   width: 1fr;
-  border: black solid;
-  border-width: 1px 0px 0px 0px;
+  border: #b7c4cc solid;
+  border-width: 2px 0px 0px 0px;
 }
 #indexContent #dashboardOrdersForm div:nth-of-type(3n + 1) {
-  border-width: 0px 1px 1px 0px;
+  border-width: 0px 2px 2px 0px;
 }
 #indexContent #dashboardOrdersForm div:nth-of-type(3n + 2) {
-  border-width: 0px 0px 1px 0px;
+  border-width: 0px 0px 2px 0px;
 }
 #indexContent #dashboardOrdersForm div:nth-of-type(3n + 3) {
-  border-width: 0px 0px 1px 1px;
+  border-width: 0px 0px 2px 2px;
 }
 #indexContent #dashboardOrdersForm div:last-of-type {
-  border-width: 0px 1px 0px 0px;
+  border-width: 0px 2px 0px 0px;
 }
 #indexContent #dashboardDriversForm {
-  min-height: 300px;
+  margin-top: 10px;
+  min-height: 200px;
   border-radius: 0px 0px 25px 25px;
 }
 #indexContent #confirm {
+  margin-top: 20px;
+  margin-bottom: 10px;
   border-radius: 25px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 50px 1fr 1fr 20px;
+  grid-template-rows: 50px 1fr 1fr 50px;
 }
 #indexContent #confirm h1 {
   grid-column: 1/span 2;
@@ -101,6 +124,7 @@
   grid-column: 2;
 }
 #indexContent #confirm button {
+  margin: auto;
   grid-row: 4;
   grid-column: 1/span 2;
 }
@@ -179,6 +203,25 @@ th {
   color: #272932;
 }
 
+button {
+  cursor: pointer;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: #b7c4cc;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.confirmBtn {
+  font-size: 15pt;
+  width: 100px;
+  height: 40px;
+}
+
 input[type=radio] {
   position: absolute;
   opacity: 0;
@@ -188,8 +231,9 @@ input[type=radio] {
 .radioContainer {
   display: block;
   position: relative;
-  padding-left: 30px;
-  margin-bottom: 12px;
+  padding-left: 50px;
+  margin: 0px 0px 15px 20px;
+  line-height: 30px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -203,13 +247,13 @@ input[type=radio] {
   left: 0;
   height: 25px;
   width: 25px;
-  background-color: #eee;
+  background-color: transparent;
   border-radius: 50%;
   border: 2px #81b3d6 solid;
 }
 
 .radioContainer:hover input ~ .checkmark {
-  background-color: #ccc;
+  background-color: #b7c4cc;
 }
 
 .radioContainer input:checked ~ .checkmark {

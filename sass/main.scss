@@ -27,6 +27,27 @@ a {
 th {
   @include title-font();
 }
+button {
+  cursor: pointer;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: #b7c4cc;
+}
+button:focus {
+  outline: 0;
+}
+.confirmBtn {
+  font-size: 15pt;
+  width: 100px;
+  height: 40px;
+}
+.confirmBtn:hover {
+}
+.cancelBtn {
+}
+
 /////////////////////////////RADIO BUTTON STYLING
 //hide default radio button
 input[type="radio"] {
@@ -37,8 +58,9 @@ input[type="radio"] {
 .radioContainer {
   display: block;
   position: relative;
-  padding-left: 30px;
-  margin-bottom: 12px;
+  padding-left: 50px;
+  margin: 0px 0px 15px 20px;
+  line-height: 30px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -51,12 +73,12 @@ input[type="radio"] {
   left: 0;
   height: 25px;
   width: 25px;
-  background-color: #eee;
+  background-color: transparent;
   border-radius: 50%;
   border: 2px #81b3d6 solid;
 }
 .radioContainer:hover input ~ .checkmark {
-  background-color: #ccc;
+  background-color: #b7c4cc;
 }
 .radioContainer input:checked ~ .checkmark {
   background-color: transparent;
