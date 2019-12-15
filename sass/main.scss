@@ -4,6 +4,7 @@
 @import "forms";
 @import "modal";
 @import "tables";
+@import "driverAssigned";
 
 $grey-color: #dce1e3;
 $light-grey-color: #f5fafc;
@@ -25,8 +26,6 @@ html,
 body {
   margin: 0 auto;
   @include paragraph-font();
-
-        
 }
 a {
   text-decoration: none;

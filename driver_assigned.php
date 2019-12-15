@@ -20,10 +20,8 @@ sendEmail($customerEmail, "customer");
 sendEmail($driverEmail, "driver");
 ?>
 
-<h1>Driver has been assigned.</h1>
+<h1 id="assignedMsg">Driver has been assigned.</h1>
 </body>
 
 </html>
 <?php
-sleep(1);
-header('Location: index.php');
