@@ -32,7 +32,7 @@ $dark-grey-color:  #272932;
 
 .order_container{
     //width: 70vw;
-    margin: 100px auto;
+    margin: 80px auto;
 .form-horizontal{
     @include placeholders {
         color: rgb(35, 35, 35, 0.5);        
@@ -40,10 +40,68 @@ $dark-grey-color:  #272932;
       }
     
     #form_general_info, #form_pickup_info, #form_delivery_info, .form_section{       
-        margin-bottom: 50px;;    
+        margin-bottom: 50px;   
         @include display-grid();
         @include grid-template-columns(6);
         grid-template-rows: repeat(2, auto);
+        h4{
+            grid-column: 1/7;
+            margin: 0;
+        }
+        .form-group{
+            @include display-grid();
+            @include grid-template-columns(1);
+            width: 70%;
+            border-bottom: solid 1px $light_blue-color;
+            label{ 
+                color: $dark_blue-color;
+                        }
+            .input{
+                border: none;
+                font-size: 1em;
+                width: 70%;
+               
+            }
+            select{
+                border: none;
+                width: 100px;
+                font-size: 1em;
+            }
+            
+        }
+
+    }
+   .submit_button{
+       width: 120px;
+       margin: 0 auto;
+       position: relative;
+       cursor: pointer;
+      
+        .btn{
+                border: none;
+                background-color: $light-blue-color;
+                height: 40px;
+                width: 100%;
+                border-radius: 10px;
+                text-align: center;
+                font-size: 1em;
+                color: $light-grey-color;
+                top: 10px;
+                cursor: pointer;
+            }
+   }
+
+}
+}
+.container{
+  .form-container{
+    @include placeholders {
+        color: rgb(35, 35, 35, 0.5);        
+        font-size: 15px;
+      }
+    
+    .form_horizontal{       
+       
         h4{
             grid-column: 1/7;
             margin: 0;

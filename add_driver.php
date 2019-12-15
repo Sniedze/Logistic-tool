@@ -13,7 +13,7 @@ print_r($numbers);
 
     ?>
     <div class="container">
-            <h3>New Driver</h3>
+            <h2>New Driver</h2>
             <div class="form_container">
                 <form class="form-horizontal" method="POST" action="new_driver_added.php">
                     <div class="form-group">

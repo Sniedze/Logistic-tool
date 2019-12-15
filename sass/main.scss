@@ -1,8 +1,9 @@
 @import "index";
 @import "orders";
 @import "header";
-@import "edit-order";
+@import "forms";
 @import "modal";
+@import "tables";
 
 $grey-color: #dce1e3;
 $light-grey-color: #f5fafc;
@@ -24,6 +25,10 @@ html,
 body {
   margin: 0 auto;
   @include paragraph-font();
+<<<<<<< HEAD
+
+        
+=======
   .order_container {
     width: 70vw;
     margin: 100px auto;
@@ -122,6 +127,7 @@ body {
       }
     }
   }
+>>>>>>> 534bb76eca52a26532883b54d8b389a12a0c3ee2
 }
 a {
   text-decoration: none;
@@ -220,7 +226,7 @@ input[type="radio"] {
 .active {
   background: rgb(39, 41, 50, 0.4);
   color: $light-grey-color;
-  padding: 23px 0 23px 0;
+  padding: 13px 0;
 }
 h3 {
   font-size: 1.4em;
