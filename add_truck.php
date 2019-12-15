@@ -11,7 +11,7 @@ foreach ($result as $value){
 
     ?>
     <div class="container">
-            <h3>New Truck</h3>
+            <h2>New Truck</h2>
             <div class="form_container">
                 <form class="form-horizontal" method="POST" action="new_truck_added.php">
                     <div class="form-group">

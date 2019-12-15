@@ -5,7 +5,7 @@ require_once(__DIR__. '/includes/top.php');
 require_once(__DIR__ . '/includes/Customers_class.php');
     ?>
     <div class="container">
-            <h3>New Customer</h3>
+            <h2>New Customer</h2>
             <div class="form_container">
                 <form class="form-horizontal" method="POST" action="new_customer_created.php">
                     <div class="form-group">

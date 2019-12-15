@@ -92,7 +92,7 @@ if($_POST){
         
             <a href="new_order.php" class="action_link"><img src="images/create-button.png"> New Order</a>
             <h2 id="order_title">Orders</h2>
-            <div class="trigger action_link"><img id="search_icon"src="images/search-button.png"> Search</div>
+            <div class="action_link" id="trigger"><img id="search_icon"src="images/search-button.png"> Search</div>
             <div class="modal">
                 <div class="modal-content">
                     <img class="close-button" src="images/close-button.png">
