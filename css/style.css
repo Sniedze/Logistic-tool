@@ -174,7 +174,7 @@
 #OrdersBody #order_container {
   position: relative;
 }
-#OrdersBody #order_container margin .trigger {
+#OrdersBody #order_container margin #trigger {
   position: absolute;
   left: 350px;
   top: 80px;
