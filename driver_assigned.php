@@ -18,11 +18,10 @@ $driverEmail = $dashboard->getDriverEmail($_POST["driverId"]);
 
 sendEmail($customerEmail, "customer");
 sendEmail($driverEmail, "driver");
-sleep(1);
-header('Location: index.php');
-
 ?>
-<h1>Driver has been assigned.</h1>
+
+<h1 id="assignedMsg">Driver has been assigned.</h1>
 </body>
 
 </html>
+<?php

@@ -38,8 +38,8 @@
 #indexContent #map {
   position: fixed;
   width: 50vw;
-  height: calc(100vh - 70px);
-  top: 70px;
+  height: calc(100vh - 50px);
+  top: 50px;
   left: 50vw;
 }
 #indexContent #dateInput {
@@ -488,6 +488,10 @@ nav a {
 }
 .container table tbody tr .remove a, .container table tbody tr .open a {
   margin: 0;
+}
+
+#assignedMsg {
+  margin-top: 150px;
 }
 
 h4,
