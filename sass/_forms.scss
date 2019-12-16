@@ -46,7 +46,7 @@ $dark-grey-color:  #272932;
         grid-template-rows: repeat(2, auto);
         h4{
             grid-column: 1/7;
-            margin: 0;
+            margin: 30px auto;
         }
         .form-group{
             @include display-grid();
@@ -58,8 +58,9 @@ $dark-grey-color:  #272932;
                         }
             .input{
                 border: none;
-                font-size: 1em;
+                font-size: 16px;
                 width: 70%;
+                height: 48px;;
                
             }
             select{
@@ -93,31 +94,31 @@ $dark-grey-color:  #272932;
 
 }
 }
-.container{
-  .form-container{
+.table_container{
+  width: 300px;
+  margin: 80px auto;
+  .form_container{
     @include placeholders {
         color: rgb(35, 35, 35, 0.5);        
         font-size: 15px;
       }
     
-    .form_horizontal{       
+    .form-horizontal{       
        
-        h4{
-            grid-column: 1/7;
-            margin: 0;
-        }
+       
         .form-group{
             @include display-grid();
             @include grid-template-columns(1);
-            width: 70%;
+            width: 100%;
             border-bottom: solid 1px $light_blue-color;
             label{ 
                 color: $dark_blue-color;
                         }
             .input{
                 border: none;
-                font-size: 1em;
+                font-size: 16px;
                 width: 70%;
+                height: 48px;
                
             }
             select{
@@ -126,27 +127,29 @@ $dark-grey-color:  #272932;
                 font-size: 1em;
             }
             
-        }
 
     }
-   .submit_button{
-       width: 120px;
-       margin: 0 auto;
-       position: relative;
-       cursor: pointer;
-      
-        .btn{
-                border: none;
-                background-color: $light-blue-color;
-                height: 40px;
-                width: 100%;
-                border-radius: 10px;
-                text-align: center;
-                font-size: 1em;
-                color: $light-grey-color;
-                top: 10px;
-                cursor: pointer;
-            }
+    .submit_button{
+      width: 120px;
+      margin: 30px auto;
+      position: relative;
+      cursor: pointer;
+     
+       .btn{
+               border: none;
+               background-color: $light-blue-color;
+               height: 40px;
+               width: 100%;
+               border-radius: 10px;
+               text-align: center;
+               font-size: 1em;
+               color: $light-grey-color;
+               top: 10px;
+               cursor: pointer;
+           }
+    
+}
+   
    }
 
 }

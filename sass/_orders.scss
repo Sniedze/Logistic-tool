@@ -15,6 +15,15 @@ $dark-grey-color:  #272932;
     display: -ms-grid;
     display: flex;
   }
+  #trigger{
+    position: absolute;
+    left: 350px;
+    top: 80px;
+    color: $dark_blue-color;
+    font-size: 1.3em;
+    cursor: pointer;
+  
+     }
 
   
 #OrdersBody{
@@ -24,7 +33,7 @@ $dark-grey-color:  #272932;
   #order_container{
     position: relative;
     margin
-    .trigger{
+    #trigger{
       position: absolute;
       left: 350px;
       top: 80px;

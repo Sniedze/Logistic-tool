@@ -168,6 +168,15 @@
   text-align: center;
 }
 
+#trigger {
+  position: absolute;
+  left: 350px;
+  top: 80px;
+  color: #456D8A;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+
 #OrdersBody #clear_search_button {
   top: 80px;
 }
@@ -270,7 +279,7 @@ nav a {
 }
 .order_container .form-horizontal #form_general_info h4, .order_container .form-horizontal #form_pickup_info h4, .order_container .form-horizontal #form_delivery_info h4, .order_container .form-horizontal .form_section h4 {
   grid-column: 1/7;
-  margin: 0;
+  margin: 30px auto;
 }
 .order_container .form-horizontal #form_general_info .form-group, .order_container .form-horizontal #form_pickup_info .form-group, .order_container .form-horizontal #form_delivery_info .form-group, .order_container .form-horizontal .form_section .form-group {
   display: grid;
@@ -284,8 +293,9 @@ nav a {
 }
 .order_container .form-horizontal #form_general_info .form-group .input, .order_container .form-horizontal #form_pickup_info .form-group .input, .order_container .form-horizontal #form_delivery_info .form-group .input, .order_container .form-horizontal .form_section .form-group .input {
   border: none;
-  font-size: 1em;
+  font-size: 16px;
   width: 70%;
+  height: 48px;
 }
 .order_container .form-horizontal #form_general_info .form-group select, .order_container .form-horizontal #form_pickup_info .form-group select, .order_container .form-horizontal #form_delivery_info .form-group select, .order_container .form-horizontal .form_section .form-group select {
   border: none;
@@ -311,53 +321,54 @@ nav a {
   cursor: pointer;
 }
 
-.container .form-container ::-webkit-input-placeholder {
+.table_container {
+  width: 300px;
+  margin: 80px auto;
+}
+.table_container .form_container ::-webkit-input-placeholder {
   color: rgba(35, 35, 35, 0.5);
   font-size: 15px;
 }
-.container .form-container ::-moz-placeholder {
+.table_container .form_container ::-moz-placeholder {
   color: rgba(35, 35, 35, 0.5);
   font-size: 15px;
 }
-.container .form-container :-ms-input-placeholder {
+.table_container .form_container :-ms-input-placeholder {
   color: rgba(35, 35, 35, 0.5);
   font-size: 15px;
 }
-.container .form-container input:-moz-placeholder {
+.table_container .form_container input:-moz-placeholder {
   color: rgba(35, 35, 35, 0.5);
   font-size: 15px;
 }
-.container .form-container .form_horizontal h4 {
-  grid-column: 1/7;
-  margin: 0;
-}
-.container .form-container .form_horizontal .form-group {
+.table_container .form_container .form-horizontal .form-group {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(1, 180px);
-  width: 70%;
+  width: 100%;
   border-bottom: solid 1px #81B3D6;
 }
-.container .form-container .form_horizontal .form-group label {
+.table_container .form_container .form-horizontal .form-group label {
   color: #456D8A;
 }
-.container .form-container .form_horizontal .form-group .input {
+.table_container .form_container .form-horizontal .form-group .input {
   border: none;
-  font-size: 1em;
+  font-size: 16px;
   width: 70%;
+  height: 48px;
 }
-.container .form-container .form_horizontal .form-group select {
+.table_container .form_container .form-horizontal .form-group select {
   border: none;
   width: 100px;
   font-size: 1em;
 }
-.container .form-container .submit_button {
+.table_container .form_container .form-horizontal .submit_button {
   width: 120px;
-  margin: 0 auto;
+  margin: 30px auto;
   position: relative;
   cursor: pointer;
 }
-.container .form-container .submit_button .btn {
+.table_container .form_container .form-horizontal .submit_button .btn {
   border: none;
   background-color: #81B3D6;
   height: 40px;
