@@ -10,24 +10,24 @@ foreach ($result as $value){
 };
 
     ?>
-    <div class="container">
+    <div class="table_container">
             <h2>New Truck</h2>
             <div class="form_container">
                 <form class="form-horizontal" method="POST" action="new_truck_added.php">
                     <div class="form-group">
                         <label for="truck_number" class="">Truck number</label>
-                        <input type="text" class="form-control" id="truck_number" placeholder="Truck number" name="truck_number">                       
+                        <input type="text" class="input form-control" id="truck_number" name="truck_number">                       
                     </div>
                     <div class="form-group">
                         <label for="capacity" class="">Capacity</label>
-                        <input type="text" class="form-control" id="capacity" placeholder="Capacity" name="capacity">                       
+                        <input type="text" class="input form-control" id="capacity" name="capacity">                       
                     </div>
                     <div class="form-group">
                         <label for="registration_date" class="">Registration Date</label>
-                        <input type="date" class="form-control" id="registration_date" placeholder="Registration Date" name="registration_date">                       
+                        <input type="date" class="input form-control" id="registration_date" name="registration_date">                       
                     </div>
                     
-                    <div class="form-group">                        
+                    <div class="submit_button">                        
                             <input type="submit" id="add_button" class="btn btn-primary" value="Save">                      
                     </div>
 
