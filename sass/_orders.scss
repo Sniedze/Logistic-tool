@@ -15,16 +15,18 @@ $dark-grey-color:  #272932;
     display: -ms-grid;
     display: flex;
   }
-  #trigger{
+  #search_form{
     position: absolute;
     left: 350px;
     top: 80px;
     color: $dark_blue-color;
     font-size: 1.3em;
     cursor: pointer;
+    button#search_button{
+      background-color: none;
+    }
   
      }
-
   
 #OrdersBody{
   #clear_search_button{
@@ -32,20 +34,13 @@ $dark-grey-color:  #272932;
   }
   #order_container{
     position: relative;
-    margin
-    #trigger{
-      position: absolute;
-      left: 350px;
-      top: 80px;
-      color: $dark_blue-color;
-      font-size: 1.3em;
-      cursor: pointer;
     
-       }
+   
   }
    .container{
-    
+    position: relative;
     margin-top: 80px;  
+   
     
      table{   
       background-color: $light-grey-color;

@@ -168,13 +168,16 @@
   text-align: center;
 }
 
-#trigger {
+#search_form {
   position: absolute;
   left: 350px;
   top: 80px;
   color: #456D8A;
   font-size: 1.3em;
   cursor: pointer;
+}
+#search_form button#search_button {
+  background-color: none;
 }
 
 #OrdersBody #clear_search_button {
@@ -183,15 +186,8 @@
 #OrdersBody #order_container {
   position: relative;
 }
-#OrdersBody #order_container margin #trigger {
-  position: absolute;
-  left: 350px;
-  top: 80px;
-  color: #456D8A;
-  font-size: 1.3em;
-  cursor: pointer;
-}
 #OrdersBody .container {
+  position: relative;
   margin-top: 80px;
 }
 #OrdersBody .container table {
@@ -523,14 +519,6 @@ a {
   color: #272932;
 }
 
-.action_link {
-  position: absolute;
-  left: 200px;
-  color: #456d8a;
-  font-size: 1.3em;
-  cursor: pointer;
-}
-
 th {
   font-family: "Source Sans Pro", sans-serif;
   color: #272932;
@@ -629,6 +617,27 @@ input[type=radio] {
 
 h3 {
   font-size: 1.4em;
+}
+
+#search_form {
+  position: absolute;
+  left: 350px;
+  top: 0px;
+  color: #456d8a;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+#search_form button#search_button {
+  background-color: transparent;
+}
+
+.action_link {
+  z-index: 1000;
+  position: absolute;
+  left: 200px;
+  color: #456d8a;
+  font-size: 1.3em;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

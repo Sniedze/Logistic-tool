@@ -31,13 +31,7 @@ a {
   text-decoration: none;
   @include title_font();
 }
-.action_link {
-  position: absolute;
-  left: 200px;
-  color: $dark_blue-color;
-  font-size: 1.3em;
-  cursor: pointer;
-}
+
 th {
   @include title-font();
 }
@@ -56,10 +50,6 @@ button:focus {
   font-size: 15pt;
   width: 100px;
   height: 40px;
-}
-.confirmBtn:hover {
-}
-.cancelBtn {
 }
 
 /////////////////////////////RADIO BUTTON STYLING
@@ -129,3 +119,23 @@ input[type="radio"] {
 h3 {
   font-size: 1.4em;
 }
+#search_form{
+  position: absolute;
+  left: 350px;
+  top: 0px; 
+  color: $dark_blue-color;
+  font-size: 1.3em;
+  cursor: pointer;
+  button#search_button{
+    background-color: transparent;
+  }
+
+   }
+   .action_link {
+    z-index: 1000;
+    position: absolute;
+    left: 200px;
+    color: $dark_blue-color;
+    font-size: 1.3em;
+    cursor: pointer;
+  }

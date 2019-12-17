@@ -20,25 +20,19 @@ if($_POST){
     
     //$sCity = $_POST['city'];
     //$sCountry = $_POST['country'];
-    empty($_POST['name'])? $sCustomerName = '[A-Z]':$sCustomerName = $_POST['name'];
-    empty($_POST['city'])? $sCity = '[A-Z]':$sCity = $_POST['city'];
-    empty($_POST['country'])? $sCountry = '[A-Z]':$sCountry = $_POST['country'];
-
-    echo $sCustomerName;
-    echo $sCity;
-    echo $sCountry;
+    $sName = $_POST['name'];
+    
 
 
     
 
-    print_r($searchResults = $orders->getSearchResults($sCustomerName, $sCity, $sCountry));
+    $searchResults = $orders->getSearchResults($sName);
     
 
     ?>
      <div class="container" id="search_container">        
             
-            <h2>Search Results</h2>
-            <div class="clear_search action_link" id="clear_search_button"><img id="clear-search_icon"src="images/clear-search-button.png"> Clear Search</div>
+            <h2>Search Results</h2>          
      
             <table class=" table table-striped" id="search_results">
                 <tr class="attribute-row">
@@ -89,41 +83,15 @@ if($_POST){
 
 
    <div class="container" id="order_container">
-        
-            <a href="new_order.php" class="action_link"><img src="images/create-button.png"> New Order</a>
-            <h2 id="order_title">Orders</h2>
-            <div class="action_link" id="trigger"><img id="search_icon"src="images/search-button.png"> Search</div>
-            <div class="modal">
-                <div class="modal-content">
-                    <img class="close-button" src="images/close-button.png">
-                    <form class="form-horizontal" action="orders.php" method="POST" >                    
-                    
-                    <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">Customer</label>
-                        <div class="col-sm-10">
-                            <input class="input" type="text"  id="name" name="name">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="city" class="col-sm-2 control-label">City</label>
-                        <div class="col-sm-10">
-                            <input class="input" type="text"  id="city"  name="city">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="country" class="">Country</label>
-                        <div class="col-sm-10">
-                            <input class="input" type="text" id="country"  name="country">
-                        </div>
-                    </div>
-                    <div class="submit_button" id="submit_button">
+   <a href="new_order.php" class="action_link"><img src="images/create-button.png"> New Order</a>
+            <form action="orders.php" method="POST" id="search_form" >                       
+                     <input class="input" type="text"  id="name" placeholder="Search" name="name">
+                     <button id="search_button"><img src="images/search-button.png"></button>                        
                             
-                            <input type="submit" class="btn" id="save_button" value="Search">
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <table class=" table table-striped" id="order_table">
+            </form>
+   <div class="clear_search action_link dontDisplay" id="clear_search_button"><img id="clear-search_icon"src="images/clear-search-button.png"> Clear Search</div>
+           
+            <h2 id="order_title">Orders</h2><table class=" table table-striped" id="order_table">
                 <tr class="attribute-row">
                     <th>Order Id</th>                   
                     <th>Pickup Date</th>

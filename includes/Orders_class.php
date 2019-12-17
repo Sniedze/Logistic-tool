@@ -289,7 +289,7 @@ class Orders
             return false;
     }
 
-    function getSearchResults($customer_name, $city, $country){
+    function getSearchResults($name){
         
         $db = new DB();
         $con = $db->connect();
@@ -304,9 +304,9 @@ class Orders
             LEFT JOIN shipment_address AS sha ON so.delivery_address_id = sha.address_id
             LEFT JOIN order_location AS ol ON ol.location_id = sa.location_id
             LEFT JOIN order_status AS os USING (order_status_id)            
-            WHERE c.customer_name LIKE ('%$customer_name%')
-            AND ol.city LIKE ('%$city%')
-            AND ol.country LIKE ('%$country%')
+            WHERE c.customer_name LIKE ('%$name%')
+            OR ol.city LIKE ('%$name%')
+            OR ol.country LIKE ('%$name%')
             ORDER BY so.pickup_date;");
             $stmt->execute();
             while ($row = $stmt->fetch())
