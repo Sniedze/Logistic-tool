@@ -8,8 +8,7 @@ $result = $trucks->list();
 foreach ($result as $value){    
         $numbers[] = $value[0];     
 };
-print_r($result);
-print_r($numbers);
+
 
     ?>
     <div class="table_container">
